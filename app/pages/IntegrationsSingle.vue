@@ -31,7 +31,7 @@
                   <div class="shrink-0">
                     <div class="sticky top-6">
                       <router-link class="flex items-center justify-center w-9 h-9 group border border-transparent rounded-full [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none" to="/integrations">
-                        <span class="sr-only">Go back</span>
+                        <span class="sr-only">{{$t('app/pages/IntegrationsSingle.vue:Go back')}}</span>
                         <svg class="w-4 h-4 fill-purple-500" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                           <path d="M6.7 14.7l1.4-1.4L3.8 9H16V7H3.8l4.3-4.3-1.4-1.4L0 8z" />
                         </svg>
@@ -47,20 +47,20 @@
                         <img class="w-full rounded-2xl" src="@/assets/images/integration-image.png" width="586" height="316" alt="Integration image" />
                       </figure>
 
-                      <h1 class="sr-only">GitHub</h1>
+                      <h1 class="sr-only">{{$t('app/pages/IntegrationsSingle.vue:GitHub')}}</h1>
 
                       <!-- Post content -->
                       <div class="prose max-w-none text-slate-400 prose-headings:text-slate-50 prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-p:leading-relaxed prose-a:text-purple-500 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-50 prose-strong:font-medium prose-blockquote:pl-5 prose-blockquote:xl:-ml-5 prose-blockquote:border-l-2 prose-blockquote:border-purple-500 prose-blockquote:font-medium prose-blockquote:text-slate-300 prose-blockquote:italic">
-                        <h2>Overview</h2>
+                        <h2>{{$t('app/pages/IntegrationsSingle.vue:Overview')}}</h2>
                         <p>
                           This powerful GitHub integration keeps your work in sync in both applications. It links features to Pull Requests so that details update automatically from In Progress to Done as the PR moves from drafted to merged - there is no need to update the issue in Stellar at all.
                         </p>
                         <p>
-                          Move even faster by using a keyboard shortcut that creates the issue's git branch name, assigns the issue and moves the issue to In Progress in one step. This integration supports <a href="#0">GitHub Enterprise</a>.
+                          Move even faster by using a keyboard shortcut that creates the issue's git branch name, assigns the issue and moves the issue to In Progress in one step. This integration supports <a href="#0">{{$t('app/pages/IntegrationsSingle.vue:GitHub Enterprise')}}</a>.
                         </p>
-                        <h2>How it works</h2>
+                        <h2>{{$t('app/pages/IntegrationsSingle.vue:How it works')}}</h2>
                         <p>
-                          Configure the GitHub integration <strong class="text-slate-50 font-medium">in a couple of minutes</strong> by authenticating and selecting which repos to connect to Stellar. Once you do, anyone in the workspace can start linking PRs.
+                          Configure the GitHub integration <strong class="text-slate-50 font-medium">{{$t('app/pages/IntegrationsSingle.vue:in a couple of minutes')}}</strong> by authenticating and selecting which repos to connect to Stellar. Once you do, anyone in the workspace can start linking PRs.
                         </p>
                         <p>
                           Link PRs to issues in a few ways. Use the issue ID in the branch name or PR title before creating the PR. To link multiple PRs, or link issues after creating the PR, use magic words along with the issue ID in the PR description.
@@ -69,11 +69,11 @@
                     </article>
 
                     <aside class="pl-6 border-l-2 border-purple-500">
-                      <p class="inline-flex font-medium italic text-lg bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">“ This integration is so perfect it tickles my brain. It ensures that your work is in sync across your entire team. ”</p>
+                      <p class="inline-flex font-medium italic text-lg bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{$t('app/pages/IntegrationsSingle.vue:“ This integration is so perfect it tickles my brain. It ensures that your work is in sync across your entire team. ”')}}</p>
                       <footer class="flex items-center space-x-4">
                         <img class="shrink-0 rounded-full" src="@/assets/images/post-avatar.jpg" width="32" height="32" alt="Author" />
                         <div class="text-sm font-medium text-slate-300">
-                          Mike Hunt <span class="text-slate-700">-</span> <a class="text-purple-500 hover:underline" href="#0">Thunderbolt</a>
+                          Mike Hunt <span class="text-slate-700">{{$t('app/pages/IntegrationsSingle.vue:-')}}</span> <a class="text-purple-500 hover:underline" href="#0">{{$t('app/pages/IntegrationsSingle.vue:Thunderbolt')}}</a>
                         </div>
                       </footer>
                     </aside>
@@ -103,30 +103,30 @@
                         </div>
                         <button class="btn-sm text-slate-300 hover:text-white transition duration-150 ease-in-out group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/70 before:rounded-full before:pointer-events-none">
                           <span class="relative inline-flex items-center">
-                            Install Integration <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
+                            Install Integration <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">{{$t('app/pages/IntegrationsSingle.vue:-&gt;')}}</span>
                           </span>
                         </button>
                       </div>
                       <ul class="text-sm">
                         <li class="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
-                          <span class="text-slate-400">Company</span>
-                          <span class="text-slate-300 font-medium">Github</span>
+                          <span class="text-slate-400">{{$t('app/pages/IntegrationsSingle.vue:Company')}}</span>
+                          <span class="text-slate-300 font-medium">{{$t('app/pages/IntegrationsSingle.vue:Github')}}</span>
                         </li>
                         <li class="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
-                          <span class="text-slate-400">Website</span>
+                          <span class="text-slate-400">{{$t('app/pages/IntegrationsSingle.vue:Website')}}</span>
                           <a class="text-purple-500 font-medium flex items-center space-x-1" href="#0">
-                            <span>github.com</span>
+                            <span>{{$t('app/pages/IntegrationsSingle.vue:github.com')}}</span>
                             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="9" height="9">
                               <path d="m1.285 8.514-.909-.915 5.513-5.523H1.663l.01-1.258h6.389v6.394H6.794l.01-4.226z" />
                             </svg>
                           </a>
                         </li>
                         <li class="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
-                          <span class="text-slate-400">Industry</span>
-                          <span class="text-slate-300 font-medium">Technology</span>
+                          <span class="text-slate-400">{{$t('app/pages/IntegrationsSingle.vue:Industry')}}</span>
+                          <span class="text-slate-300 font-medium">{{$t('app/pages/IntegrationsSingle.vue:Technology')}}</span>
                         </li>
                         <li class="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
-                          <span class="text-slate-400">Installs</span>
+                          <span class="text-slate-400">{{$t('app/pages/IntegrationsSingle.vue:Installs')}}</span>
                           <span class="text-slate-300 font-medium">100K+</span>
                         </li>
                       </ul>

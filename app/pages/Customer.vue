@@ -28,16 +28,16 @@
                 <article class="pb-12 mb-12 border-b [border-image:linear-gradient(to_right,transparent,var(--color-slate-800),transparent)1]">
 
                   <div class="mb-4">
-                    <router-link class="inline-flex text-sm font-medium text-purple-500 group" to="/customers"><span class="tracking-normal group-hover:-translate-x-0.5 transition-transform duration-150 ease-in-out mr-1">&lt;-</span> Go Back</router-link>
+                    <router-link class="inline-flex text-sm font-medium text-purple-500 group" to="/customers"><span class="tracking-normal group-hover:-translate-x-0.5 transition-transform duration-150 ease-in-out mr-1">{{$t('app/pages/Customer.vue:&lt;-')}}</span> Go Back</router-link>
                   </div>
 
                   <header>
-                    <h1 class="h2 inline-flex bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">How Airbnb leverages Stellar X to onboard new hosts</h1>
+                    <h1 class="h2 inline-flex bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{$t('app/pages/Customer.vue:How Airbnb leverages Stellar X to onboard new hosts')}}</h1>
                     <div class="text-sm flex items-center space-x-4 mb-8">
                       <img class="rounded-full" src="@/assets/images/customer-avatar-03.jpg" width="32" height="32" alt="Customer Avatar 03" />
                       <div>
-                        <div class="text-slate-300 font-medium">Becky Taylor</div>
-                        <div class="text-slate-500">Product Marketing Manager</div>
+                        <div class="text-slate-300 font-medium">{{$t('app/pages/Customer.vue:Becky Taylor')}}</div>
+                        <div class="text-slate-500">{{$t('app/pages/Customer.vue:Product Marketing Manager')}}</div>
                       </div>
                     </div>
                   </header>
@@ -45,10 +45,10 @@
                   <!-- Post content -->
                   <div class="prose max-w-none text-slate-400 prose-headings:text-slate-50 prose-h2:text-xl prose-h2:mt-8 prose-h2:mb-4 prose-p:leading-relaxed prose-a:text-purple-500 prose-a:no-underline hover:prose-a:underline prose-strong:text-slate-50 prose-strong:font-medium prose-blockquote:pl-5 prose-blockquote:xl:-ml-5 prose-blockquote:border-l-2 prose-blockquote:border-purple-500 prose-blockquote:font-medium prose-blockquote:text-slate-300 prose-blockquote:italic">
                     <p>
-                      <a href="#0">Airbnb</a> is an American San Francisco-based company operating an online marketplace for short- and long-term homestays and experiences. The company acts as a broker and charges a commission from each booking. The company was founded in 2008 by Brian Chesky, Nathan Blecharczyk, and Joe Gebbia. Airbnb is a shortened version of its original name, AirBedandBreakfast.com. Airbnb is the most well-known company for short-term housing rentals.
+                      <a href="#0">{{$t('app/pages/Customer.vue:Airbnb')}}</a> is an American San Francisco-based company operating an online marketplace for short- and long-term homestays and experiences. The company acts as a broker and charges a commission from each booking. The company was founded in 2008 by Brian Chesky, Nathan Blecharczyk, and Joe Gebbia. Airbnb is a shortened version of its original name, AirBedandBreakfast.com. Airbnb is the most well-known company for short-term housing rentals.
                     </p>
                     <p>
-                      Regulation of <strong>short-term rentals can include requirements for hosts to have business licenses</strong>, payment of hotel taxes and compliance with building, city and zoning standards. The hotel industry has lobbied for stricter regulations on short-term home rental and in addition to government-imposed restrictions, many homeowner associations also limit short term rentals.
+                      Regulation of <strong>{{$t('app/pages/Customer.vue:short-term rentals can include requirements for hosts to have business licenses')}}</strong>, payment of hotel taxes and compliance with building, city and zoning standards. The hotel industry has lobbied for stricter regulations on short-term home rental and in addition to government-imposed restrictions, many homeowner associations also limit short term rentals.
                     </p>
                     <h2>Why do Airbnb need web governance policies?</h2>
                     <p>
@@ -69,9 +69,9 @@
                       </li>
                     </ul>
                     <p>
-                      When these problems become acute enough, large website redesign projects begin. But <strong>without governance being put in place at the same time, the same problem will only happen again</strong>. Airbnb mitigate this risk by baking web governance into their working process with clients from strategy through to site launch and beyond.
+                      When these problems become acute enough, large website redesign projects begin. But <strong>{{$t('app/pages/Customer.vue:without governance being put in place at the same time, the same problem will only happen again')}}</strong>. Airbnb mitigate this risk by baking web governance into their working process with clients from strategy through to site launch and beyond.
                     </p>
-                    <h2>Good governance leads to stronger results</h2>
+                    <h2>{{$t('app/pages/Customer.vue:Good governance leads to stronger results')}}</h2>
                     <p>
                       With a strong process for content governance, the benefits are clear for both Airbnb as a company and their clients. Since its founding in 2008, Airbnb has become one of the most successful and valuable start-ups in the world, and has had a significant impact on the industry of renting homes and the hospitality industry more generally.
                     </p>
@@ -109,33 +109,33 @@
                       <div class="mb-5">
                         <div class="flex items-center space-x-4">
                           <img src="@/assets/images/customer-badge.svg" width="64" height="64" alt="Customer badge" />
-                          <div class="text-lg font-semibold text-slate-100">Airbnb Inc.</div>
+                          <div class="text-lg font-semibold text-slate-100">{{$t('app/pages/Customer.vue:Airbnb Inc.')}}</div>
                         </div>
                       </div>
                       <ul class="text-sm">
                         <li class="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
-                          <span class="text-slate-400">Location</span>
-                          <span class="text-slate-300 font-medium">San Francisco</span>
+                          <span class="text-slate-400">{{$t('app/pages/Customer.vue:Location')}}</span>
+                          <span class="text-slate-300 font-medium">{{$t('app/pages/Customer.vue:San Francisco')}}</span>
                         </li>
                         <li class="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
-                          <span class="text-slate-400">Website</span>
+                          <span class="text-slate-400">{{$t('app/pages/Customer.vue:Website')}}</span>
                           <a class="text-purple-500 font-medium flex items-center space-x-1" href="#0">
-                            <span>airbnb.com</span>
+                            <span>{{$t('app/pages/Customer.vue:airbnb.com')}}</span>
                             <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="9" height="9">
                               <path d="m1.285 8.514-.909-.915 5.513-5.523H1.663l.01-1.258h6.389v6.394H6.794l.01-4.226z" />
                             </svg>
                           </a>
                         </li>
                         <li class="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
-                          <span class="text-slate-400">Industry</span>
-                          <span class="text-slate-300 font-medium">Hospitality</span>
+                          <span class="text-slate-400">{{$t('app/pages/Customer.vue:Industry')}}</span>
+                          <span class="text-slate-300 font-medium">{{$t('app/pages/Customer.vue:Hospitality')}}</span>
                         </li>
                         <li class="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
-                          <span class="text-slate-400">Product</span>
-                          <span class="text-slate-300 font-medium">Stellar X</span>
+                          <span class="text-slate-400">{{$t('app/pages/Customer.vue:Product')}}</span>
+                          <span class="text-slate-300 font-medium">{{$t('app/pages/Customer.vue:Stellar X')}}</span>
                         </li>
                         <li class="flex items-center justify-between space-x-2 py-3 border-t [border-image:linear-gradient(to_right,--theme(--color-slate-700/.3),--theme(--color-slate-700),--theme(--color-slate-700/.3))1]">
-                          <span class="text-slate-400">Impact</span>
+                          <span class="text-slate-400">{{$t('app/pages/Customer.vue:Impact')}}</span>
                           <span class="text-slate-300 font-medium">+7% new hosts</span>
                         </li>
                       </ul>

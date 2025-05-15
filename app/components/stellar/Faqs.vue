@@ -20,9 +20,9 @@
         <!-- Section header -->
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
           <div>
-            <div class="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">Getting started with Stellar</div>
+            <div class="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">{{$t('app/components/stellar/Faqs.vue:Getting started with Stellar')}}</div>
           </div>
-          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Everything you need to know</h2>
+          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{$t('app/components/stellar/Faqs.vue:Everything you need to know')}}</h2>
         </div>
 
         <!-- Columns -->
@@ -34,19 +34,19 @@
             <!-- Item -->
             <div class="space-y-2">
               <h4 class="font-semibold">What is Stellar?</h4>
-              <p class="text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.</p>
+              <p class="text-slate-400">{{$t('app/components/stellar/Faqs.vue:Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.')}}</p>
             </div>
 
             <!-- Item -->
             <div class="space-y-2">
               <h4 class="font-semibold">What's an affordable alternative to Stellar?</h4>
-              <p class="text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.</p>
+              <p class="text-slate-400">{{$t('app/components/stellar/Faqs.vue:Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.')}}</p>
             </div>
 
             <!-- Item -->
             <div class="space-y-2">
               <h4 class="font-semibold">Can I remove the 'Powered by Stellar' branding?</h4>
-              <p class="text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.</p>
+              <p class="text-slate-400">{{$t('app/components/stellar/Faqs.vue:Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.')}}</p>
             </div>
 
           </div>
@@ -57,19 +57,19 @@
             <!-- Item -->
             <div class="space-y-2">
               <h4 class="font-semibold">What kind of data can I collect from my customers?</h4>
-              <p class="text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.</p>
+              <p class="text-slate-400">{{$t('app/components/stellar/Faqs.vue:Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.')}}</p>
             </div>
 
             <!-- Item -->
             <div class="space-y-2">
               <h4 class="font-semibold">Can I use Stellar for free?</h4>
-              <p class="text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.</p>
+              <p class="text-slate-400">{{$t('app/components/stellar/Faqs.vue:Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.')}}</p>
             </div>
 
             <!-- Item -->
             <div class="space-y-2">
               <h4 class="font-semibold">Is Stellar affordable for small businesses?</h4>
-              <p class="text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.</p>
+              <p class="text-slate-400">{{$t('app/components/stellar/Faqs.vue:Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis enim lobortis scelerisque fermentum.')}}</p>
             </div>
 
           </div>

@@ -17,19 +17,19 @@
           <!-- Desktop menu links -->
           <ul class="flex grow justify-center flex-wrap items-center">
             <li>
-              <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/about">About</router-link>
+              <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/about">{{$t('app/components/stellar/Header.vue:About')}}</router-link>
             </li>
             <li>
-              <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/integrations">Integrations</router-link>
+              <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/integrations">{{$t('app/components/stellar/Header.vue:Integrations')}}</router-link>
             </li>
             <li>
-              <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/pricing">Pricing</router-link>
+              <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/pricing">{{$t('app/components/stellar/Header.vue:Pricing')}}</router-link>
             </li>
             <li>
-              <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/customers">Customers</router-link>
+              <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/customers">{{$t('app/components/stellar/Header.vue:Customers')}}</router-link>
             </li>
             <li>
-              <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/changelog">Changelog</router-link>
+              <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/changelog">{{$t('app/components/stellar/Header.vue:Changelog')}}</router-link>
             </li>
           </ul>
 
@@ -38,12 +38,12 @@
         <!-- Desktop sign in links -->
         <ul class="flex-1 flex justify-end items-center">
           <li>
-            <router-link class="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out" to="/signin">Sign in</router-link>
+            <router-link class="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out" to="/signin">{{$t('app/components/stellar/Header.vue:Sign in')}}</router-link>
           </li>
           <li class="ml-6">
             <router-link class="btn-sm text-slate-300 hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none" to="/signup">
               <span class="relative inline-flex items-center">
-                Sign up <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
+                Sign up <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">{{$t('app/components/stellar/Header.vue:-&gt;')}}</span>
               </span>
             </router-link>
           </li>
@@ -60,7 +60,7 @@
             :aria-expanded="mobileNavOpen" 
             @click.stop="mobileNavOpen = !mobileNavOpen"
           >
-            <span class="sr-only">Menu</span>
+            <span class="sr-only">{{$t('app/components/stellar/Header.vue:Menu')}}</span>
             <svg class="w-4 h-4 fill-current pointer-events-none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
               <rect class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] -translate-y-[5px] group-aria-expanded:rotate-[315deg] group-aria-expanded:translate-y-0" y="7" width="16" height="2" rx="1"></rect>
               <rect class="origin-center group-aria-expanded:rotate-45 transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)]" y="7" width="16" height="2" rx="1"></rect>
@@ -72,19 +72,19 @@
           <nav id="mobile-nav" class="absolute top-full z-20 left-0 w-full px-4 sm:px-6 overflow-hidden transition-all duration-300 ease-in-out" ref="mobileNav" :style="[mobileNavOpen ? { maxHeight: $refs.mobileNav.scrollHeight + 'px', opacity: 1 } : { maxHeight: 0, opacity: .8 }]" @click.outside="expanded = false" @keydown.escape.window="expanded = false">
             <ul class="border border-transparent [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] rounded-lg px-4 py-1.5">
               <li>
-                <router-link class="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" to="/about">About</router-link>
+                <router-link class="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" to="/about">{{$t('app/components/stellar/Header.vue:About')}}</router-link>
               </li>
               <li>
-                <router-link class="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" to="/integrations">Integrations</router-link>
+                <router-link class="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" to="/integrations">{{$t('app/components/stellar/Header.vue:Integrations')}}</router-link>
               </li>
               <li>
-                <router-link class="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" to="/pricing">Pricing</router-link>
+                <router-link class="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" to="/pricing">{{$t('app/components/stellar/Header.vue:Pricing')}}</router-link>
               </li>
               <li>
-                <router-link class="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" to="/customers">Customers</router-link>
+                <router-link class="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" to="/customers">{{$t('app/components/stellar/Header.vue:Customers')}}</router-link>
               </li>
               <li>
-                <router-link class="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" to="/changelog">Changelog</router-link>
+                <router-link class="flex font-medium text-sm text-slate-300 hover:text-white py-1.5" to="/changelog">{{$t('app/components/stellar/Header.vue:Changelog')}}</router-link>
               </li>
             </ul>
           </nav>

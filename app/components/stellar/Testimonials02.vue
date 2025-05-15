@@ -10,8 +10,8 @@
       <div class="py-12 md:py-20">
         <!-- Content -->
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Hear from our people</h2>
-          <p class="text-lg text-slate-400">Our company is comprised of people who make bold choices for our clients and the security sector. It's in our DNA to push our limits and make bold changes.</p>
+          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{$t('app/components/stellar/Testimonials02.vue:Hear from our people')}}</h2>
+          <p class="text-lg text-slate-400">{{$t('app/components/stellar/Testimonials02.vue:Our company is comprised of people who make bold choices for our clients and the security sector. It's in our DNA to push our limits and make bold changes.')}}</p>
         </div>
         <!-- Grid -->
         <div class="grid lg:grid-cols-3 gap-4 sm:gap-6 max-w-xs mx-auto lg:max-w-none">

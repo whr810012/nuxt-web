@@ -31,10 +31,9 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/ui', // to auto-load tailwindcss and will use ui components later
-    // '@nuxt/content', // 暂时不使用cms模块
-    // '@nuxtjs/tailwindcss',
+    '@nuxt/ui',
     '@nuxt/image',
+    '@nuxtjs/i18n',
   ],
   vite: {
     server: {
@@ -52,5 +51,19 @@ export default defineNuxtConfig({
 
   ui: {
     fonts: false
+  },
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'locales/en.json', name: 'English' },
+      { code: 'zh', iso: 'zh-CN', file: 'locales/zh.json', name: '简体中文' }
+    ],
+    defaultLocale: 'zh',
+    langDir: 'locales/',
+    strategy: 'no_prefix',
+    vueI18n: {
+      legacy: false,
+      locale: 'zh',
+      fallbackLocale: 'en',
+    }
   }
 })

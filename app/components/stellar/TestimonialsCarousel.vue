@@ -6,10 +6,10 @@
         <!-- Section header -->
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
           <div>
-            <div class="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">The security first platform</div>
+            <div class="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">{{$t('app/components/stellar/TestimonialsCarousel.vue:The security first platform')}}</div>
           </div>
-          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Spot issues faster</h2>
-          <p class="text-lg text-slate-400">All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{$t('app/components/stellar/TestimonialsCarousel.vue:Spot issues faster')}}</h2>
+          <p class="text-lg text-slate-400">{{$t('app/components/stellar/TestimonialsCarousel.vue:All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.')}}</p>
         </div>
 
         <!-- Carousel built with Swiper.js [https://swiperjs.com/] -->
@@ -29,11 +29,11 @@
                   <div class="flex flex-col p-6 h-full">
                     <img class="mb-3" src="@/assets/images/carousel-icon-01.svg" width="56" height="56" alt="Icon 01">
                     <div class="grow">
-                      <div class="font-bold text-lg mb-1">Anonymous User</div>
-                      <div class="text-slate-400 mb-3">Incorporate rich user profiling, and facilitate more transactions.</div>
+                      <div class="font-bold text-lg mb-1">{{$t('app/components/stellar/TestimonialsCarousel.vue:Anonymous User')}}</div>
+                      <div class="text-slate-400 mb-3">{{$t('app/components/stellar/TestimonialsCarousel.vue:Incorporate rich user profiling, and facilitate more transactions.')}}</div>
                     </div>
                     <div class="text-right">
-                      <a class="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
+                      <a class="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">{{$t('app/components/stellar/TestimonialsCarousel.vue:-&gt;')}}</span></a>
                     </div>
                   </div>
                 </div>
@@ -49,11 +49,11 @@
                   <div class="flex flex-col p-6 h-full">
                     <img class="mb-3" src="@/assets/images/carousel-icon-02.svg" width="56" height="56" alt="Icon 01">
                     <div class="grow">
-                      <div class="font-bold text-lg mb-1">Bot Detection</div>
-                      <div class="text-slate-400 mb-3">Incorporate rich user profiling, and facilitate more transactions.</div>
+                      <div class="font-bold text-lg mb-1">{{$t('app/components/stellar/TestimonialsCarousel.vue:Bot Detection')}}</div>
+                      <div class="text-slate-400 mb-3">{{$t('app/components/stellar/TestimonialsCarousel.vue:Incorporate rich user profiling, and facilitate more transactions.')}}</div>
                     </div>
                     <div class="text-right">
-                      <a class="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
+                      <a class="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">{{$t('app/components/stellar/TestimonialsCarousel.vue:-&gt;')}}</span></a>
                     </div>
                   </div>
                 </div>
@@ -69,11 +69,11 @@
                   <div class="flex flex-col p-6 h-full">
                     <img class="mb-3" src="@/assets/images/carousel-icon-03.svg" width="56" height="56" alt="Icon 01">
                     <div class="grow">
-                      <div class="font-bold text-lg mb-1">Social integrations</div>
-                      <div class="text-slate-400 mb-3">Incorporate rich user profiling, and facilitate more transactions.</div>
+                      <div class="font-bold text-lg mb-1">{{$t('app/components/stellar/TestimonialsCarousel.vue:Social integrations')}}</div>
+                      <div class="text-slate-400 mb-3">{{$t('app/components/stellar/TestimonialsCarousel.vue:Incorporate rich user profiling, and facilitate more transactions.')}}</div>
                     </div>
                     <div class="text-right">
-                      <a class="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
+                      <a class="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">{{$t('app/components/stellar/TestimonialsCarousel.vue:-&gt;')}}</span></a>
                     </div>
                   </div>
                 </div>
@@ -89,11 +89,11 @@
                   <div class="flex flex-col p-6 h-full">
                     <img class="mb-3" src="@/assets/images/carousel-icon-04.svg" width="56" height="56" alt="Icon 01">
                     <div class="grow">
-                      <div class="font-bold text-lg mb-1">Progressive Profiling</div>
-                      <div class="text-slate-400 mb-3">Incorporate rich user profiling, and facilitate more transactions.</div>
+                      <div class="font-bold text-lg mb-1">{{$t('app/components/stellar/TestimonialsCarousel.vue:Progressive Profiling')}}</div>
+                      <div class="text-slate-400 mb-3">{{$t('app/components/stellar/TestimonialsCarousel.vue:Incorporate rich user profiling, and facilitate more transactions.')}}</div>
                     </div>
                     <div class="text-right">
-                      <a class="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
+                      <a class="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">{{$t('app/components/stellar/TestimonialsCarousel.vue:-&gt;')}}</span></a>
                     </div>
                   </div>
                 </div>
@@ -109,11 +109,11 @@
                   <div class="flex flex-col p-6 h-full">
                     <img class="mb-3" src="@/assets/images/carousel-icon-05.svg" width="56" height="56" alt="Icon 05">
                     <div class="grow">
-                      <div class="font-bold text-lg mb-1">Secure Access</div>
-                      <div class="text-slate-400 mb-3">Incorporate rich user profiling, and facilitate more transactions.</div>
+                      <div class="font-bold text-lg mb-1">{{$t('app/components/stellar/TestimonialsCarousel.vue:Secure Access')}}</div>
+                      <div class="text-slate-400 mb-3">{{$t('app/components/stellar/TestimonialsCarousel.vue:Incorporate rich user profiling, and facilitate more transactions.')}}</div>
                     </div>
                     <div class="text-right">
-                      <a class="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
+                      <a class="text-sm font-medium text-slate-300 hover:text-white inline-flex items-center transition duration-150 ease-in-out group" href="#0">Learn More <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">{{$t('app/components/stellar/TestimonialsCarousel.vue:-&gt;')}}</span></a>
                     </div>
                   </div>
                 </div>
@@ -125,13 +125,13 @@
         <!-- Arrows -->
         <div class="flex mt-8 justify-end">
           <button class="carousel-prev relative z-20 w-12 h-12 flex items-center justify-center group">
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">{{$t('app/components/stellar/TestimonialsCarousel.vue:Previous')}}</span>
             <svg class="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
               <path d="M6.7 14.7l1.4-1.4L3.8 9H16V7H3.8l4.3-4.3-1.4-1.4L0 8z" />
             </svg>
           </button>
           <button class="carousel-next relative z-20 w-12 h-12 flex items-center justify-center group">
-            <span class="sr-only">Next</span>
+            <span class="sr-only">{{$t('app/components/stellar/TestimonialsCarousel.vue:Next')}}</span>
             <svg class="w-4 h-4 fill-slate-500 group-hover:fill-purple-500 transition duration-150 ease-in-out" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
               <path d="M9.3 14.7l-1.4-1.4L12.2 9H0V7h12.2L7.9 2.7l1.4-1.4L16 8z" />
             </svg>

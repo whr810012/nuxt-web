@@ -1,6 +1,6 @@
 <template>
   <aside>
-    <h2 class="inline-flex font-bold text-lg bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-8">Related stories</h2>
+    <h2 class="inline-flex font-bold text-lg bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-8">{{$t('app/components/stellar/CustomersRelated.vue:Related stories')}}</h2>
     <div class="mx-auto sm:max-w-[728px] lg:max-w-none">
       <Highlighter class="grid gap-4 lg:gap-6 sm:grid-cols-3 lg:grid-cols-3 group">
 
