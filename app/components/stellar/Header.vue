@@ -31,6 +31,10 @@
             <li>
               <router-link class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" to="/changelog">{{ $t('nav.changelog') }}</router-link>
             </li>
+            <li>
+              <a class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/en">英文</a>
+              <a class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out" href="/">中文</a>
+            </li>
           </ul>
 
         </nav>
