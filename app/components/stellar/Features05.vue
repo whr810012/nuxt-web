@@ -11,8 +11,8 @@
 
         <!-- Section header -->
         <div class="max-w-3xl mx-auto text-center pb-12">
-          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{$t('app/components/stellar/Features05.vue:Stop overpaying for software')}}</h2>
-          <p class="text-lg text-slate-400">{{$t('app/components/stellar/Features05.vue:There are many variations available, but the majority have suffered alteration in some form, by injected humour.')}}</p>
+          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Stop overpaying for software</h2>
+          <p class="text-lg text-slate-400">There are many variations available, but the majority have suffered alteration in some form, by injected humour.</p>
         </div>
 
         <!-- Rings illustration -->
@@ -58,7 +58,7 @@
                 <path class="fill-purple-400" fill-rule="nonzero" d="M13 6.586 14.414 8l-5.747 5.748-3.081-3.081L7 9.252l1.667 1.667z" />
               </svg>
               <p class="text-sm text-slate-400">
-                Purpose-built for company that requires more than a <strong class="text-slate-300 font-medium">{{$t('app/components/stellar/Features05.vue:simple plan')}}</strong> with security infrastructure.
+                Purpose-built for company that requires more than a <strong class="text-slate-300 font-medium">simple plan</strong> with security infrastructure.
               </p>
             </div>
           </div>
@@ -70,7 +70,7 @@
                 <path class="fill-purple-400" fill-rule="nonzero" d="M13 6.586 14.414 8l-5.747 5.748-3.081-3.081L7 9.252l1.667 1.667z" />
               </svg>
               <p class="text-sm text-slate-400">
-                AI-powered to <strong class="text-slate-300 font-medium">{{$t('app/components/stellar/Features05.vue:remove the burdens')}}</strong> of tedious knowledge management and security tasks.
+                AI-powered to <strong class="text-slate-300 font-medium">remove the burdens</strong> of tedious knowledge management and security tasks.
               </p>
             </div>
           </div>
@@ -82,7 +82,7 @@
                 <path class="fill-purple-400" fill-rule="nonzero" d="M13 6.586 14.414 8l-5.747 5.748-3.081-3.081L7 9.252l1.667 1.667z" />
               </svg>
               <p class="text-sm text-slate-400">
-                There's no prioritized support in Stellar. You can use email or live chat and you will hear back in a <strong class="text-slate-300 font-medium">{{$t('app/components/stellar/Features05.vue:couple of hours')}}</strong>.
+                There's no prioritized support in Stellar. You can use email or live chat and you will hear back in a <strong class="text-slate-300 font-medium">couple of hours</strong>.
               </p>
             </div>
           </div>
@@ -94,7 +94,7 @@
                 <path class="fill-purple-400" fill-rule="nonzero" d="M13 6.586 14.414 8l-5.747 5.748-3.081-3.081L7 9.252l1.667 1.667z" />
               </svg>
               <p class="text-sm text-slate-400">
-                Comprehensive <strong class="text-slate-300 font-medium">{{$t('app/components/stellar/Features05.vue:developer docs')}}</strong> and a centralized support center packed many resources.
+                Comprehensive <strong class="text-slate-300 font-medium">developer docs</strong> and a centralized support center packed many resources.
               </p>
             </div>
           </div>
@@ -106,7 +106,7 @@
                 <path class="fill-purple-400" fill-rule="nonzero" d="M13 6.586 14.414 8l-5.747 5.748-3.081-3.081L7 9.252l1.667 1.667z" />
               </svg>
               <p class="text-sm text-slate-400">
-                No upcharges—and we'd never upsell you to a higher plan or a <strong class="text-slate-300 font-medium">{{$t('app/components/stellar/Features05.vue:dedicated IP')}}</strong> to improve deliverability.
+                No upcharges—and we'd never upsell you to a higher plan or a <strong class="text-slate-300 font-medium">dedicated IP</strong> to improve deliverability.
               </p>
             </div>
           </div>
@@ -118,7 +118,7 @@
                 <path class="fill-purple-400" fill-rule="nonzero" d="M13 6.586 14.414 8l-5.747 5.748-3.081-3.081L7 9.252l1.667 1.667z" />
               </svg>
               <p class="text-sm text-slate-400">
-                Tool training, dedicated resources, and <strong class="text-slate-300 font-medium">{{$t('app/components/stellar/Features05.vue:regular updates')}}</strong> are available for both small and large teams.
+                Tool training, dedicated resources, and <strong class="text-slate-300 font-medium">regular updates</strong> are available for both small and large teams.
               </p>
             </div>
           </div>

@@ -19,8 +19,8 @@
 
         <!-- Section header -->
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{$t('app/components/stellar/Recruitment.vue:Join a team of makers')}}</h2>
-          <p class="text-lg text-slate-400">{{$t('app/components/stellar/Recruitment.vue:We are makers at heart. Problem solvers and storytellers. We are a diverse team of individuals who build things to make our customers happy.')}}</p>
+          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Join a team of makers</h2>
+          <p class="text-lg text-slate-400">We are makers at heart. Problem solvers and storytellers. We are a diverse team of individuals who build things to make our customers happy.</p>
         </div>
 
         <!-- Icons with text -->
@@ -35,8 +35,8 @@
                 </g>
               </svg>
             </div>
-            <div class="font-bold text-slate-100 mb-1">{{$t('app/components/stellar/Recruitment.vue:Passionate')}}</div>
-            <p class="text-sm text-slate-400">{{$t('app/components/stellar/Recruitment.vue:You are passionate about digital products of any kind and are a builder at heart.')}}</p>
+            <div class="font-bold text-slate-100 mb-1">Passionate</div>
+            <p class="text-sm text-slate-400">You are passionate about digital products of any kind and are a builder at heart.</p>
           </div>
           <!-- Block #2 -->
           <div class="text-center p-5">
@@ -45,8 +45,8 @@
                 <path class="fill-slate-200" d="M9.423 12.278H.87L11.614.458l-1.037 7.264h8.553L8.386 19.542l1.037-7.264Zm-6.293-1h7.447l-.74 5.18 7.033-7.736H9.423l.74-5.18-7.033 7.736Z" opacity=".8" />
               </svg>
             </div>
-            <div class="font-bold text-slate-100 mb-1">{{$t('app/components/stellar/Recruitment.vue:Energetic')}}</div>
-            <p class="text-sm text-slate-400">{{$t('app/components/stellar/Recruitment.vue:You are passionate about digital products of any kind and are a builder at heart.')}}</p>
+            <div class="font-bold text-slate-100 mb-1">Energetic</div>
+            <p class="text-sm text-slate-400">You are passionate about digital products of any kind and are a builder at heart.</p>
           </div>
           <!-- Block #3 -->
           <div class="text-center p-5">
@@ -58,8 +58,8 @@
                 </g>
               </svg>
             </div>
-            <div class="font-bold text-slate-100 mb-1">{{$t('app/components/stellar/Recruitment.vue:Achiever')}}</div>
-            <p class="text-sm text-slate-400">{{$t('app/components/stellar/Recruitment.vue:You are passionate about digital products of any kind and are a builder at heart.')}}</p>
+            <div class="font-bold text-slate-100 mb-1">Achiever</div>
+            <p class="text-sm text-slate-400">You are passionate about digital products of any kind and are a builder at heart.</p>
           </div>
         </div>
 
@@ -93,7 +93,7 @@
       </div>
 
       <div class="max-w-3xl mx-auto py-12 md:py-20">
-        <h3 class="h3 inline-flex bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-8 md:pb-16">{{$t('app/components/stellar/Recruitment.vue:Open positions')}}</h3>
+        <h3 class="h3 inline-flex bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-8 md:pb-16">Open positions</h3>
         <div class="space-y-8">
 
           <template v-for="item in items">
@@ -103,7 +103,7 @@
                 <template v-for="position in item.positions">
                   <li class="flex flex-col md:flex-row flex-wrap justify-between py-5">
                     <span class="font-medium text-slate-50 mr-2">{{ position.title }}</span>
-                    <a class="inline-flex text-sm font-medium text-purple-500 group" :href="position.link">{{ position.location }} <span class="tracking-normal group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">{{$t('app/components/stellar/Recruitment.vue:-&gt;')}}</span></a>
+                    <a class="inline-flex text-sm font-medium text-purple-500 group" :href="position.link">{{ position.location }} <span class="tracking-normal group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></a>
                   </li>
                 </template>
               </ul>

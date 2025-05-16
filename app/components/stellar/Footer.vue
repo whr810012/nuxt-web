@@ -15,7 +15,7 @@
                   <img src="@/assets/images/logo.svg" width="38" height="38" alt="Stellar">
                 </router-link>
               </div>
-              <div class="text-sm text-slate-300">&copy; Cruip.com <span class="text-slate-500">{{$t('app/components/stellar/Footer.vue:-')}}</span> All rights reserved.</div>
+              <div class="text-sm text-slate-300">&copy; Cruip.com <span class="text-slate-500">-</span> All rights reserved.</div>
             </div>
             <!-- Social links -->
             <ul class="flex">
@@ -46,79 +46,79 @@
 
         <!-- 2nd block -->
         <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
-          <h6 class="text-sm text-slate-50 font-medium mb-2">{{$t('app/components/stellar/Footer.vue:Products')}}</h6>
+          <h6 class="text-sm text-slate-50 font-medium mb-2">Products</h6>
           <ul class="text-sm space-y-2">
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Features')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Features</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Integrations')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Integrations</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Pricing & Plans')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Pricing & Plans</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Changelog')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Changelog</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Our method')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Our method</a>
             </li>
           </ul>
         </div>
 
         <!-- 3rd block -->
         <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
-          <h6 class="text-sm text-slate-50 font-medium mb-2">{{$t('app/components/stellar/Footer.vue:Company')}}</h6>
+          <h6 class="text-sm text-slate-50 font-medium mb-2">Company</h6>
           <ul class="text-sm space-y-2">
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:About us')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">About us</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Diversity & Inclusion')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Diversity & Inclusion</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Blog')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Blog</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Careers')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Careers</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Financial statements')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Financial statements</a>
             </li>
           </ul>
         </div>
 
         <!-- 4th block -->
         <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
-          <h6 class="text-sm text-slate-50 font-medium mb-2">{{$t('app/components/stellar/Footer.vue:Resources')}}</h6>
+          <h6 class="text-sm text-slate-50 font-medium mb-2">Resources</h6>
           <ul class="text-sm space-y-2">
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Community')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Community</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Terms of service')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Terms of service</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Report a vulnerability')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Report a vulnerability</a>
             </li>
           </ul>
         </div>
 
         <!-- 5th block -->
         <div class="sm:col-span-6 md:col-span-3 lg:col-span-2">
-          <h6 class="text-sm text-slate-50 font-medium mb-2">{{$t('app/components/stellar/Footer.vue:Legals')}}</h6>
+          <h6 class="text-sm text-slate-50 font-medium mb-2">Legals</h6>
           <ul class="text-sm space-y-2">
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Refund policy')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Refund policy</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Terms & Conditions')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Terms & Conditions</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Privacy policy')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Privacy policy</a>
             </li>
             <li>
-              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">{{$t('app/components/stellar/Footer.vue:Brand Kit')}}</a>
+              <a class="text-slate-400 hover:text-slate-200 transition duration-150 ease-in-out" href="#0">Brand Kit</a>
             </li>
           </ul>
         </div>

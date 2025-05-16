@@ -22,14 +22,14 @@
         <!-- Content -->
         <div class="max-w-3xl mx-auto text-center">
           <div>
-            <div class="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">{{$t('app/components/stellar/Cta03.vue:Never miss an update')}}</div>
+            <div class="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">Never miss an update</div>
           </div>
-          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{$t('app/components/stellar/Cta03.vue:Take control of your business')}}</h2>
-          <p class="text-lg text-slate-400 mb-8">{{$t('app/components/stellar/Cta03.vue:Find out about our latest product changes as we continue improving Stellar to enable your team to collaborate better.')}}</p>
+          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Take control of your business</h2>
+          <p class="text-lg text-slate-400 mb-8">Find out about our latest product changes as we continue improving Stellar to enable your team to collaborate better.</p>
           <form class="inline-flex max-w-sm w-full">
             <div class="w-full flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none">
               <input type="email" class="form-input py-1.5 w-full mb-3 sm:mb-0 sm:mr-2 rounded-full bg-slate-800/30 border-slate-700" placeholder="Your email" aria-label="Your email" />
-              <button class="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group" type="submit">Subscribe <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">{{$t('app/components/stellar/Cta03.vue:-&gt;')}}</span></button>
+              <button class="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group" type="submit">Subscribe <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></button>
             </div>
           </form>
         </div>

@@ -20,10 +20,10 @@
 
         <!-- Section header -->
         <div class="text-center pb-12 md:pb-20">
-          <div class="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">{{$t('app/components/stellar/PricingHero.vue:The security first platform')}}</div>
-          <h1 class="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{$t('app/components/stellar/PricingHero.vue:Simple plans for everyone')}}</h1>
+          <div class="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">The security first platform</div>
+          <h1 class="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Simple plans for everyone</h1>
           <div class="max-w-3xl mx-auto">
-            <p class="text-lg text-slate-400">{{$t('app/components/stellar/PricingHero.vue:Cut down overhead costs and ditch clunky software. Get a flexible, purpose-built tool to simplify your security with authentication services.')}}</p>
+            <p class="text-lg text-slate-400">Cut down overhead costs and ditch clunky software. Get a flexible, purpose-built tool to simplify your security with authentication services.</p>
           </div>
         </div>
 

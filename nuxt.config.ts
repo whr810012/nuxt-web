@@ -31,9 +31,11 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxt/ui',
+    '@nuxt/ui', // to auto-load tailwindcss and will use ui components later
+    // '@nuxt/content', // 暂时不使用cms模块
+    // '@nuxtjs/tailwindcss',
     '@nuxt/image',
-    '@nuxtjs/i18n',
+    '@nuxtjs/i18n'
   ],
   vite: {
     server: {
@@ -52,18 +54,19 @@ export default defineNuxtConfig({
   ui: {
     fonts: false
   },
+
   i18n: {
     locales: [
-      { code: 'en', iso: 'en-US', file: 'locales/en.json', name: 'English' },
-      { code: 'zh', iso: 'zh-CN', file: 'locales/zh.json', name: '简体中文' }
+      { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' },
+      { code: 'zh', iso: 'zh-CN', file: 'zh.json', name: '中文' }
     ],
     defaultLocale: 'zh',
-    langDir: 'locales/',
-    strategy: 'no_prefix',
-    vueI18n: {
-      legacy: false,
-      locale: 'zh',
-      fallbackLocale: 'en',
+    strategy: 'prefix_except_default',
+    langDir: 'locales',
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'i18n_redirected',
+      redirectOn: 'root'
     }
   }
 })
