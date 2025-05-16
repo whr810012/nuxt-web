@@ -10,7 +10,7 @@ const proxy_api_prefix_list = [
 ]
 const proxy = proxy_api_prefix_list.reduce((proxy, prefix) => {
   proxy[prefix] = {
-    target: 'http://81.69.165.136',
+    target: 'http://localhost:8082',
     changeOrigin: true,
     ws: true,
     rewrite: (p: string) => p.replace('/mock-api', '')
@@ -44,7 +44,7 @@ export default defineNuxtConfig({
   },
 
   devServer: {
-    host: '0.0.0.0',
+    host: 'localhost',
     port: 6008
   },
 

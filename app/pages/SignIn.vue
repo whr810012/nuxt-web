@@ -43,7 +43,7 @@
                 </div>
               </div>
               <div class="mt-6">
-                <button class="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group">
+                <button class="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group" @click="signIn">
                   Sign In <span class="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
                 </button>
               </div>
@@ -93,7 +93,32 @@
 </template>
 
 <script>
+import { get, post } from '~/utils/request'
 export default {
   name: 'SignIn',
+  data() {
+    return {
+      email: '',
+      password: '',
+    }
+  },
+  methods: {
+    async signIn() {
+      try {
+        // const response = await get('/')
+        console.log(response)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  },
+  async created() {
+    try {
+        const response = await get('/captcha')
+        console.log(response)
+      } catch (error) {
+        console.error(error)
+      }
+  }
 }
 </script>
