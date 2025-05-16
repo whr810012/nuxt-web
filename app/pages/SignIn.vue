@@ -1,8 +1,6 @@
 <template>
   <main class="grow">
-
     <section class="relative">
-
       <!-- Illustration -->
       <div class="md:block absolute left-1/2 -translate-x-1/2 -mt-36 blur-2xl opacity-70 pointer-events-none -z-10"
         aria-hidden="true">
@@ -36,7 +34,7 @@
               <div class="space-y-4">
                 <div>
                   <label class="block text-sm text-slate-300 font-medium mb-1" for="email">Email</label>
-                  <input id="email" class="form-input w-full" type="email" required />
+                  <input v-model="email" id="email" class="form-input w-full" type="email" required />
                 </div>
                 <div>
                   <div class="flex justify-between">
@@ -45,7 +43,8 @@
                       class="text-sm font-medium text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out ml-2"
                       to="/reset-password">Forgot?</router-link>
                   </div>
-                  <input id="password" class="form-input w-full" type="password" autocomplete="on" required />
+                  <input v-model="password" id="password" class="form-input w-full" type="password" autocomplete="on"
+                    required />
                 </div>
                 <div>
                   <label class="block text-sm text-slate-300 font-medium mb-1" for="captcha">Verification Code</label>
@@ -60,7 +59,7 @@
               </div>
               <div class="mt-6">
                 <button class="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group"
-                  @click="signIn">
+                  @click="signIn($event)">
                   Sign In <span
                     class="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
                 </button>
@@ -69,12 +68,9 @@
 
             <div class="text-center mt-4">
               <div class="text-sm text-slate-400">
-                Don't have an account? <router-link
-                  class="font-medium text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out"
-                  to="/signup">Sign up</router-link>
+                <router-link class="font-medium text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out" to="/signup">Sign up</router-link>
               </div>
             </div>
-
             <!-- Divider -->
             <div class="flex items-center my-6">
               <div class="border-t border-slate-800 grow mr-3" aria-hidden="true"></div>
@@ -105,47 +101,86 @@
                 </span>
               </button>
             </div>
-
           </div>
-
         </div>
       </div>
-
     </section>
-
   </main>
 </template>
 
-<script>
+<script setup lang="ts">
 import { get, post } from '~/utils/request'
-export default {
-  name: 'SignIn',
-  data() {
-    return {
-      email: '',
-      password: '',
-      captchaCode: '',
-      img: '',
-      uuid: ''
-    }
-  },
-  methods: {
-    async signIn() {
-      const response = await post('/user/login', {
-        email: this.email,
-        password: this.password,
-        captchaCode: this.captchaCode,
-        uuid: this.uuid
-      })
-    },
-    async init() {
-      const response = await get('/captcha') // 直接获取数据，而不是响应对象
-      this.img = 'data:image/png;base64,' + response.img
-      this.uuid = response.uuid
-    }
-  },
-  async created() {
-    await this.init()
+const email = ref()
+const password = ref()
+const captchaCode = ref()
+const img = ref()
+const uuid = ref()
+const signIn = async (event: any) => {
+  if (!email.value || !password.value || !captchaCode.value) {
+    return showToast('请输入完整信息');
   }
+  try {
+    const formData = new FormData();
+    formData.append('userName', email.value);
+    formData.append('password', password.value);
+    formData.append('captcha', captchaCode.value);
+    formData.append('captchaKey', uuid.value);
+    const response = await post('/user/login', formData)
+    if (response) {
+      showToast('登录成功');
+      window.location.href = '/';
+      localStorage.setItem('token', response.token)
+    } else {
+      console.log('shibia', response);
+      init()
+      showToast('登录失败');
+    }
+  } catch (error) {
+    showToast('登录失败');
+    init()
+  }
+  // 处理响应
 }
+const init = async () => {
+  const response = await get('/captcha') // 直接获取数据，而不是响应对象
+  img.value = 'data:image/png;base64,' + response.img
+  uuid.value = response.uuid
+}
+const showToast = (message: string) => {
+  console.log('Toast message:', message); // 调试信息
+  // 创建一个新的 toast 元素
+  const toast = document.createElement('div');
+  toast.className = 'toast'; // 使用已有的样式类
+  toast.textContent = message;
+  
+  // 将 toast 元素添加到 body 中
+  document.body.appendChild(toast);
+
+  // 3秒后隐藏并移除元素
+  setTimeout(() => {
+    toast.classList.add('hidden');
+    setTimeout(() => {
+      toast.remove();
+    }, 500); // 确保过渡效果完成后移除
+  }, 3000);
+}
+
+init()
 </script>
+
+<style>
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #9d19d1; /* 更深的背景色，与页面背景一致 */
+  padding: 15px 30px; /* 增加内边距 */
+  border-radius: 8px; /* 更圆的边角 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 更明显的阴影 */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* 添加平滑的变换效果 */
+  color: #e0e0e0; /* 更浅的文字颜色，与页面文字一致 */
+  opacity: 1; /* 默认显示 */
+  z-index: 1000; /* 确保在最上层 */
+}
+</style>
