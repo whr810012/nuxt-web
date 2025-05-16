@@ -41,7 +41,7 @@
             <router-link class="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out" to="/signin">{{ $t('auth.signIn') }}</router-link>
           </li>
           <li class="ml-4">
-            <LanguageSwitcher />
+            <!-- <LanguageSwitcher /> -->
           </li>
           <li class="ml-6">
             <router-link class="btn-sm text-slate-300 hover:text-white transition duration-150 ease-in-out w-full group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none" to="/signup">
@@ -101,7 +101,7 @@
 
 <script>
 import { ref, onMounted, onUnmounted } from 'vue'
-import LanguageSwitcher from './LanguageSwitcher.vue'
+// import LanguageSwitcher from './LanguageSwitcher.vue'
 
 export default {
   name: 'Header',
