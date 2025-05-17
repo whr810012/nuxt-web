@@ -134,8 +134,16 @@ const signIn = async (event: any) => {
     if (response?.token) {
       showToast('登录成功');
       userStore.setToken(response.token);
-      userStore.setUserInfo({ username: email.value });
-      router.push('/');
+      localStorage.setItem('token', response.token);
+      useCookie('token', response.token);
+      try {
+        const userInfo = await get('/user/query')
+        userStore.setUserInfo(userInfo)
+        router.push('/');
+      } catch (error: any) {
+        console.log('获取用户信息失败', error);
+        showToast(error.message || error.msg || '获取用户信息失败');
+      }
     } else {
       console.log('登录失败', response);
       throw new Error('登录失败');
