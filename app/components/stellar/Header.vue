@@ -57,11 +57,11 @@
           </ul>
 
         </nav>
-        <div class="flex items-center">
-          <LanguageSwitcher />
-        </div>
         <!-- Desktop sign in links -->
         <ul class="flex-1 flex justify-end items-center">
+          <div class="flex items-end mx-2 mt-1">
+            <LanguageSwitcher />
+          </div>
           <template v-if="!userStore.getUserInfo?.username">
             <li>
               <router-link

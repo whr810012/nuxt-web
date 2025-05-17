@@ -62,12 +62,11 @@ export default defineNuxtConfig({
       { code: 'zh', iso: 'zh-CN', file: 'zh.json', name: '中文' }
     ],
     defaultLocale: 'zh',
-    strategy: 'prefix_except_default',
-    langDir: 'locales/',
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'i18n_redirected',
-      redirectOn: 'root'
-    }
+      redirectOn: 'root',
+    },
+    langDir: 'locales/',
   }
 })

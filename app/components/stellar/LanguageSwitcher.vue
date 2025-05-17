@@ -2,7 +2,7 @@
   <div class="relative">
     <button 
       @click="isOpen = !isOpen" 
-      class="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900"
+      class="flex items-center text-sm font-medium text-slate-200 hover:text-white transition-colors duration-150"
     >
       {{ currentLocale.name }}
       <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -10,13 +10,12 @@
       </svg>
     </button>
     
-    <!-- 下拉菜单 -->
-    <div v-if="isOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg z-50">
+    <div v-if="isOpen" class="absolute right-0 mt-2 py-2 w-48 bg-slate-800 border border-slate-700 rounded-md shadow-xl z-50">
       <a 
         v-for="locale in availableLocales" 
         :key="locale.code"
         @click="switchLanguage(locale.code)"
-        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+        class="block px-4 py-2 text-sm text-slate-300 hover:text-white hover:bg-slate-700/50 cursor-pointer transition-colors duration-150"
       >
         {{ locale.name }}
       </a>
@@ -24,18 +23,19 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { useI18n } from 'vue-i18n'
 
-const { locale } = useI18n()
+<script setup lang="ts">
+const { locale, locales, setLocale } = useI18n()
 const isOpen = ref(false)
 
 // 可用语言列表
 const availableLocales = computed(() => {
-  return [
-    { code: 'en', name: 'English' },
-    { code: 'zh', name: '中文' }
-  ]
+  return locales.value.map(l => {
+    return { 
+      code: l.code, 
+      name: l.name 
+    }
+  })
 })
 
 // 当前语言
@@ -44,12 +44,9 @@ const currentLocale = computed(() => {
 })
 
 // 切换语言方法
-const switchLanguage = (code: string) => {
+const switchLanguage = async (code: string) => {
+  console.log('切换语言', code)
   isOpen.value = false
-  // 保存用户语言偏好
-  const cookie = useCookie('i18n_redirected')
-  console.log(cookie);
-  cookie.value = code
+  await setLocale(code)
 }
-
 </script>
