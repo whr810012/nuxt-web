@@ -60,7 +60,7 @@
 
         <!-- Desktop sign in links -->
         <ul class="flex-1 flex justify-end items-center">
-          <template v-if="!userStore.getUserInfo?.username">
+          <template v-if="!userStore.getUserInfo?.nickName">
             <li>
               <router-link
                 class="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out"
