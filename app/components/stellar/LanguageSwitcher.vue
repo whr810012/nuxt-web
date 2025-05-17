@@ -1,74 +1,55 @@
 <template>
-  <div class="relative inline-block text-left">
-    <button
-      type="button"
-      class="inline-flex items-center justify-center font-medium text-sm text-slate-300 hover:text-white transition duration-150 ease-in-out"
-      @click="isOpen = !isOpen"
+  <div class="relative">
+    <button 
+      @click="isOpen = !isOpen" 
+      class="flex items-center text-sm font-medium text-gray-600 hover:text-gray-900"
     >
       {{ currentLocale.name }}
-      <svg class="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
       </svg>
     </button>
-
-    <div
-      v-if="isOpen"
-      class="absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-slate-800 ring-1 ring-black ring-opacity-5"
-    >
-      <div class="py-1" role="menu" aria-orientation="vertical">
-        <button
-          v-for="locale in availableLocales"
-          :key="locale.code"
-          class="block w-full px-4 py-2 text-sm text-left text-slate-300 hover:text-white hover:bg-slate-700"
-          role="menuitem"
-          @click="switchLanguage(locale.code)"
-        >
-          {{ locale.name }}
-        </button>
-      </div>
+    
+    <!-- 下拉菜单 -->
+    <div v-if="isOpen" class="absolute right-0 mt-2 py-2 w-48 bg-white rounded-md shadow-lg z-50">
+      <a 
+        v-for="locale in availableLocales" 
+        :key="locale.code"
+        @click="switchLanguage(locale.code)"
+        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+      >
+        {{ locale.name }}
+      </a>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import LanguageSwitcher from './LanguageSwitcher.vue'
 
-const { locale, locales } = useI18n()
+const { locale } = useI18n()
 const isOpen = ref(false)
 
+// 可用语言列表
 const availableLocales = computed(() => {
-  return locales.value.map((l: any) => ({
-    code: l.code,
-    name: l.name
-  }))
+  return [
+    { code: 'en', name: 'English' },
+    { code: 'zh', name: '中文' }
+  ]
 })
 
+// 当前语言
 const currentLocale = computed(() => {
-  return availableLocales.value.find((l: any) => l.code === locale.value) || availableLocales.value[0]
+  return availableLocales.value.find(l => l.code === locale.value) || availableLocales.value[0]
 })
 
+// 切换语言方法
 const switchLanguage = (code: string) => {
-  locale.value = code
   isOpen.value = false
+  // 保存用户语言偏好
+  const cookie = useCookie('i18n_redirected')
+  console.log(cookie);
+  cookie.value = code
 }
-</script>
 
-<template>
-  <div>
-    <button @click="switchLanguage('en')">English</button>
-    <button @click="switchLanguage('zh')">中文</button>
-  </div>
-</template>
-
-<script>
-export default {
-  name: 'LanguageSwitcher',
-  methods: {
-    switchLanguage(locale) {
-      this.$i18n.setLocale(locale);
-    }
-  }
-}
 </script>

@@ -7,6 +7,7 @@
 </template>
 <script setup lang="ts">
 import AOS from 'aos'
+import { useI18n } from 'vue-i18n'
 import { useUserStore } from '~/store/user'
 import 'aos/dist/aos.css'
 import './assets/css/style.css'
@@ -29,14 +30,19 @@ const init = async () => {
 }
 
 onMounted(() => {
-init()
-
+  init()
   AOS.init({
     once: true,
     disable: 'phone',
     duration: 500,
     easing: 'ease-out-cubic',
-  }) 
+  })
+    // 初始化语言设置
+  const { locale } = useI18n()
+  const savedLocale = localStorage.getItem('user-locale')
+  if (savedLocale) {
+    locale.value = savedLocale
+  }
 })
 
 </script>

@@ -57,7 +57,9 @@
           </ul>
 
         </nav>
-
+        <div class="flex items-center">
+          <LanguageSwitcher />
+        </div>
         <!-- Desktop sign in links -->
         <ul class="flex-1 flex justify-end items-center">
           <template v-if="!userStore.getUserInfo?.username">
@@ -166,6 +168,7 @@
 import { useUserStore } from '~/store/user'
 import { useRouter } from 'vue-router'
 import { toast } from '#build/ui'
+import LanguageSwitcher from './LanguageSwitcher.vue'
 // import LanguageSwitcher from './LanguageSwitcher.vue'
 
 const userStore = useUserStore()
