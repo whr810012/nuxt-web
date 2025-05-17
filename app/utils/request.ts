@@ -32,10 +32,13 @@ export const request = async <T = any>(
       const userStore = useUserStore();
       const token = userStore.getToken;
       console.log('options',options);
-      
+      // 有两个接口不需要token
       if (token) {
-        options.headers.set('Authorization', `${token}`);
-        // setAuthorizationHeader(options.headers, token);
+        if (url === '/user/login' || url === '/captcha') {
+          return;
+        } else{
+          options.headers.set('Authorization', `${token}`);          
+        }
       }
     },
     // 响应拦截
