@@ -30,11 +30,11 @@
           <!-- Form -->
           <div class="max-w-sm mx-auto">
 
-            <form>
+            <form @submit="signIn">
               <div class="space-y-4">
                 <div>
                   <label class="block text-sm text-slate-300 font-medium mb-1" for="email">Email</label>
-                  <input v-model="email" id="email" class="form-input w-full" type="email" required />
+                  <input v-model="email" id="email" class="form-input w-full" required />
                 </div>
                 <div>
                   <div class="flex justify-between">
@@ -58,8 +58,7 @@
                 </div>
               </div>
               <div class="mt-6">
-                <button class="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group"
-                  @click="signIn($event)">
+                <button type="submit" class="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group">
                   Sign In <span
                     class="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
                 </button>
@@ -110,12 +109,14 @@
 
 <script setup lang="ts">
 import { get, post } from '~/utils/request'
+const router = useRouter()
 const email = ref()
 const password = ref()
 const captchaCode = ref()
 const img = ref()
 const uuid = ref()
 const signIn = async (event: any) => {
+  event.preventDefault();
   if (!email.value || !password.value || !captchaCode.value) {
     return showToast('请输入完整信息');
   }
@@ -125,21 +126,22 @@ const signIn = async (event: any) => {
     formData.append('password', password.value);
     formData.append('captcha', captchaCode.value);
     formData.append('captchaKey', uuid.value);
-    const response = await post('/user/login', formData)
-    if (response) {
+    const response = await post('/user/login', formData);
+    console.log('response', response);
+    if (response?.token) {
       showToast('登录成功');
-      window.location.href = '/';
-      localStorage.setItem('token', response.token)
+      localStorage.setItem('token', response.token);
+      router.push('/');
     } else {
-      console.log('shibia', response);
-      init()
-      showToast('登录失败');
+      console.log('登录失败', response);
+      
+      throw new Error('登录失败');
     }
-  } catch (error) {
-    showToast('登录失败');
-    init()
+  } catch (error: any) {
+    console.log('登录失败', error);
+    showToast(error.message || error.msg || '登录失败');
+    init();
   }
-  // 处理响应
 }
 const init = async () => {
   const response = await get('/captcha') // 直接获取数据，而不是响应对象

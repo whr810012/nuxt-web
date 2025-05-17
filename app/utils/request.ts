@@ -30,28 +30,25 @@ export const request = async <T = any>(
     onRequest({ options }) {
       const token = typeof localStorage !== 'undefined' ? localStorage.getItem('token') : null;
       if (token) {
-        if (options.headers instanceof Headers) {
-          options.headers.set('Authorization', `Bearer ${token}`);
-        } else {
-          options.headers = options.headers || {};
-          if (options.headers instanceof Headers) {
-            options.headers.set('Authorization', `Bearer ${token}`);
-          }
-        }
+        setAuthorizationHeader(options.headers, token);
       }
     },
     // 响应拦截
     onResponse({ response }) {
       const data = response._data as ApiResponse<T>;
+      console.log('Response received:', data);
       if (data.code !== 200) {
-        throw new Error(data?.message || '请求错误')
+        throw new Error(data.message || '请求失败');
       }
-      return data;  // 返回处理后的数据对象
+      // 确保返回的是处理后的数据对象
+      return data;  
     },
     // 错误处理
     onResponseError({ response }) {
       const error = response._data as ApiResponse<T>;
-      throw new Error(error?.message || '网络错误');
+      console.error('Response error:', error);
+      // 返回错误信息以便页面处理
+      throw error;
     },
   };
 
@@ -62,13 +59,39 @@ export const request = async <T = any>(
   };
 
   try {
-    const { data } = await useFetch<ApiResponse<T>>(url, finalConfig);
-    return data.value?.data as T;  // 访问完整响应中的实际数据
+    const response = await useFetch<ApiResponse<T>>(url, finalConfig);
+    console.log('Fetch successful:', response);
+    const { data, error } = response;
+    console.log('data',data);
+    
+    
+    if (error.value) {
+      throw error.value;
+    }
+    
+    if (!data.value) {
+      throw new Error('请求失败');
+    }
+    
+    if (data.value.code === 200) {
+      return data.value.data as T;
+    } else {
+      throw new Error(data.value.message || '请求失败');
+    }
   } catch (error) {
     console.error('Request error:', error);
     throw error;
   }
 };
+
+// 设置授权头部的辅助函数
+function setAuthorizationHeader(headers: Headers | Record<string, string>, token: string) {
+  if (headers instanceof Headers) {
+    headers.set('Authorization', `Bearer ${token}`);
+  } else {
+    headers['Authorization'] = `Bearer ${token}`;
+  }
+}
 
 // 导出便捷方法
 export const get = <T = any>(url: string, config?: RequestConfig) => {
