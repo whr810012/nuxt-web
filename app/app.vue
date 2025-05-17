@@ -13,9 +13,12 @@ import './assets/css/style.css'
 const userStore = useUserStore()
 console.log('app running...')
 const init = async () => {
-  const token = useCookie('token')
-  if (token && (token as any).value) {
-    userStore.setToken((token as any).value)
+  console.log('initinit');
+  const token = localStorage.getItem('token')
+  console.log('token', token);
+  if (!!token) {
+    console.log('token11', token);
+    userStore.setToken(token)
     try {
       const userInfo = await get('/user/query')
       userStore.setUserInfo(userInfo)
@@ -26,7 +29,8 @@ const init = async () => {
 }
 
 onMounted(() => {
-  init()
+init()
+
   AOS.init({
     once: true,
     disable: 'phone',

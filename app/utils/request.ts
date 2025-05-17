@@ -32,6 +32,7 @@ export const request = async <T = any>(
       const userStore = useUserStore();
       const token = userStore.getToken;
       if (token) {
+        // options.headers.set('Authorization', `${token}`);
         setAuthorizationHeader(options.headers, token);
       }
     },

@@ -136,6 +136,8 @@ const signIn = async (event: any) => {
       userStore.setToken(response.token);
       localStorage.setItem('token', response.token);
       useCookie('token', response.token);
+      // userStore.setUserInfo({username: email.value});
+      // router.push('/');
       try {
         const userInfo = await get('/user/query')
         userStore.setUserInfo(userInfo)
