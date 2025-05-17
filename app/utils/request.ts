@@ -31,9 +31,11 @@ export const request = async <T = any>(
     onRequest({ options }) {
       const userStore = useUserStore();
       const token = userStore.getToken;
+      console.log('options',options);
+      
       if (token) {
-        // options.headers.set('Authorization', `${token}`);
-        setAuthorizationHeader(options.headers, token);
+        options.headers.set('Authorization', `${token}`);
+        // setAuthorizationHeader(options.headers, token);
       }
     },
     // 响应拦截
