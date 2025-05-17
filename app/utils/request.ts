@@ -1,4 +1,5 @@
 import type { UseFetchOptions } from 'nuxt/app';
+import { useUserStore } from '~/store/user';
 
 // 定义错误类型
 type FetchError = any;
@@ -28,7 +29,8 @@ export const request = async <T = any>(
     },
     // 请求拦截
     onRequest({ options }) {
-      const token = typeof localStorage !== 'undefined' ? localStorage.getItem('token') : null;
+      const userStore = useUserStore();
+      const token = userStore.getToken;
       if (token) {
         setAuthorizationHeader(options.headers, token);
       }

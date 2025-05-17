@@ -108,13 +108,16 @@
 </template>
 
 <script setup lang="ts">
-import { get, post } from '~/utils/request'
+import { useUserStore } from '~/store/user'
+
 const router = useRouter()
+const userStore = useUserStore()
 const email = ref()
 const password = ref()
 const captchaCode = ref()
 const img = ref()
 const uuid = ref()
+
 const signIn = async (event: any) => {
   event.preventDefault();
   if (!email.value || !password.value || !captchaCode.value) {
@@ -130,11 +133,11 @@ const signIn = async (event: any) => {
     console.log('response', response);
     if (response?.token) {
       showToast('登录成功');
-      localStorage.setItem('token', response.token);
+      userStore.setToken(response.token);
+      userStore.setUserInfo({ username: email.value });
       router.push('/');
     } else {
       console.log('登录失败', response);
-      
       throw new Error('登录失败');
     }
   } catch (error: any) {

@@ -10,7 +10,8 @@
   "auth": {
     "signIn": "登录",
     "signUp": "注册",
-    "resetPassword": "重置密码"
+    "resetPassword": "重置密码",
+    "SignOut": "退出登录"
   },
   "common": {
     "learnMore": "了解更多",

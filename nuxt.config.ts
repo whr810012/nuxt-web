@@ -35,7 +35,8 @@ export default defineNuxtConfig({
     // '@nuxt/content', // 暂时不使用cms模块
     // '@nuxtjs/tailwindcss',
     '@nuxt/image',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@pinia/nuxt'
   ],
   vite: {
     server: {
