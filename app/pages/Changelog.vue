@@ -22,9 +22,9 @@
 
           <!-- Page header -->
           <div class="text-center pb-12 md:pb-20">
-            <h1 class="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">What's New</h1>
+            <h1 class="h1 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{ $t('changelog.title') }}</h1>
             <div class="max-w-3xl mx-auto">
-              <p class="text-lg text-slate-400">New updates and improvements to Stellar.</p>
+              <p class="text-lg text-slate-400">{{ $t('changelog.subtitle') }}</p>
             </div>
           </div>
 
@@ -76,7 +76,7 @@
                         <li>See realtime updates in Slack and get notified when your task is complete</li>
                         <li>Receive requests in Stellar in a shared team inbox</li>
                       </ul>
-                      <p>Subscribe to get notified of key changes in the views you care about most. Opt-in to <a href="#0">receive a notification</a> when tasks are added to the view or when issues are completed or canceled.</p>
+                      <p>Subscribe to get notified of key changes in the views you care about most. Opt-in to <a href="#0">{{ $t('changelog.receiveNotification') }}</a> when tasks are added to the view or when issues are completed or canceled.</p>
                     </div>
                   </div>
                 </div>
@@ -133,14 +133,14 @@
               <li>
                 <span class="btn-sm text-slate-700 transition duration-150 ease-in-out group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none cursor-not-allowed">
                   <span class="relative inline-flex items-center">
-                    <span class="tracking-normal text-slate-700 mr-1">&lt;-</span> Previous Page
+                    <span class="tracking-normal text-slate-700 mr-1">&lt;-</span> {{ $t('common.previousPage') }}
                   </span>
                 </span>
               </li>
               <li>
                 <a class="btn-sm text-slate-300 hover:text-white transition duration-150 ease-in-out group [background:linear-gradient(var(--color-slate-900),var(--color-slate-900))_padding-box,conic-gradient(var(--color-slate-400),var(--color-slate-700)_25%,var(--color-slate-700)_75%,var(--color-slate-400)_100%)_border-box] relative before:absolute before:inset-0 before:bg-slate-800/30 before:rounded-full before:pointer-events-none" href="#0">
                   <span class="relative inline-flex items-center">
-                    Next Page <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
+                    {{ $t('common.nextPage') }} <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
                   </span>
                 </a>
               </li>

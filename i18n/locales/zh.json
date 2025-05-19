@@ -11,11 +11,101 @@
     "signIn": "登录",
     "signUp": "注册",
     "resetPassword": "重置密码",
-    "SignOut": "退出登录"
+    "SignOut": "退出登录",
+    "email": "邮箱",
+    "password": "密码",
+    "forgot": "忘记密码？",
+    "verification": "验证码",
+    "company": "公司",
+    "fullName": "姓名",
+    "referrer": "您是如何了解我们的？",
+    "alreadyHaveAccount": "已有账号？",
+    "createAccount": "创建您的免费账号",
+    "continueWith": "继续使用"
   },
   "common": {
     "learnMore": "了解更多",
     "getStarted": "开始使用",
-    "contactUs": "联系我们"
+    "contactUs": "联系我们",
+    "or": "或",
+    "previousPage": "上一页",
+    "nextPage": "下一页"
+  },
+  "footer": {
+    "copyright": "版权所有",
+    "products": {
+      "title": "产品",
+      "features": "功能",
+      "integrations": "集成",
+      "pricing": "价格与方案",
+      "changelog": "更新日志",
+      "method": "我们的方法"
+    },
+    "company": {
+      "title": "公司",
+      "about": "关于我们",
+      "diversity": "多元化与包容",
+      "blog": "博客",
+      "careers": "招聘",
+      "financial": "财务报表"
+    },
+    "resources": {
+      "title": "资源",
+      "community": "社区",
+      "terms": "服务条款",
+      "report": "报告漏洞"
+    },
+    "legals": {
+      "title": "法律",
+      "refund": "退款政策",
+      "terms": "条款与条件",
+      "privacy": "隐私政策",
+      "brand": "品牌工具包"
+    }
+  },
+  "hero": {
+    "beta": "API Studio 现已进入测试阶段",
+    "title": "API 安全框架",
+    "description": "我们的落地页模板适用于所有设备，因此您只需设置一次，即可永远获得美观的结果。",
+    "getStarted": "开始使用",
+    "readDocs": "阅读文档"
+  },
+  "changelog": {
+    "title": "最新动态",
+    "subtitle": "Stellar的最新更新和改进。",
+    "receiveNotification": "接收通知"
+  },
+  "customers": {
+    "tagline": "领导者喜爱Stellar",
+    "title": "受到领先企业的信任",
+    "description": "Stellar为数千个高影响力的产品团队提供支持。从追求卓越的新兴创业公司到改变世界的知名企业。"
+  },
+  "customer": {
+    "goBack": "返回",
+    "title": "Airbnb如何利用Stellar X招募新房东",
+    "author": "贝基·泰勒",
+    "position": "产品营销经理",
+    "content": {
+      "intro": "Airbnb是一家总部位于美国旧金山的公司，经营短期和长期住宿及体验的在线市场。该公司作为中介，从每次预订中收取佣金。公司由布莱恩·切斯基、内森·布莱查奇克和乔·格比亚于2008年创立。Airbnb是其原名AirBedandBreakfast.com的缩写。Airbnb是短期住房租赁领域最知名的公司。",
+      "regulation": "短期租赁的监管可能包括要求房东持有营业执照、缴纳酒店税以及遵守建筑、城市和分区标准。酒店行业一直在游说加强对短期住宅租赁的监管，除了政府施加的限制外，许多业主协会也限制短期租赁。",
+      "whyTitle": "为什么Airbnb需要网络治理政策？",
+      "ceoQuote": "Airbnb联合创始人兼首席执行官布莱恩·切斯基：",
+      "reflection": "通过与房东合作二十年的经验，Airbnb认识到缺乏治理政策是大多数短期租赁的系统性问题。没有网络治理，房东通常会经历缺乏流程和责任制，导致：",
+      "list1": "内容的有机蔓延，创建臃肿的网站",
+      "list2": "不一致、质量较差的内容",
+      "list3": "薄弱的用户体验影响支持数字目标的能力",
+      "riskWarning": "当这些问题变得足够严重时，大型网站重新设计项目就会开始。但如果同时没有建立治理机制，同样的问题只会再次发生。Airbnb通过将网络治理融入客户从战略到网站启动及以后的工作流程中来降低这一风险。",
+      "governanceTitle": "良好的治理带来更强的结果",
+      "governanceText": "通过强有力的内容治理流程，对Airbnb公司和其客户的好处是显而易见的。自2008年成立以来，Airbnb已成为世界上最成功和最有价值的初创公司之一，并对房屋租赁行业和更广泛的酒店业产生了重大影响。",
+      "quote": "通过强有力的内容治理流程，对Airbnb公司和其客户的好处是显而易见的。自2008年成立以来，Airbnb已成为世界上最成功和最有价值的初创公司之一，并对房屋租赁行业和更广泛的酒店业产生了重大影响。",
+      "impact": "Airbnb还对酒店业产生了重大影响，特别是在酒店和其他传统住宿提供商领域，这些通常被称为HORECA行业。一些行业专家认为，Airbnb的快速增长已经扰乱了传统的HORECA模式，并导致某些市场中传统酒店的收入和入住率下降。",
+      "buyInTitle": "如何获得组织范围内的认同？",
+      "buyInText": "迈克认为，引入网络治理政策的最佳时机是在网站重新启动项目期间，因为集体精力集中在创建更好的用户体验上。Voltaire建议与战略启动同步开始治理政策。"
+    }
+  },
+  "about": {
+    "heroTagline": "产品背后的团队",
+    "heroTitle": "将安全转化为创新"
   }
+  
 }

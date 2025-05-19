@@ -28,16 +28,16 @@
                 <article class="pb-12 mb-12 border-b [border-image:linear-gradient(to_right,transparent,var(--color-slate-800),transparent)1]">
 
                   <div class="mb-4">
-                    <router-link class="inline-flex text-sm font-medium text-purple-500 group" to="/customers"><span class="tracking-normal group-hover:-translate-x-0.5 transition-transform duration-150 ease-in-out mr-1">&lt;-</span> Go Back</router-link>
+                    <router-link class="inline-flex text-sm font-medium text-purple-500 group" to="/customers"><span class="tracking-normal group-hover:-translate-x-0.5 transition-transform duration-150 ease-in-out mr-1">&lt;-</span> {{ $t('customer.goBack') }}</router-link>
                   </div>
 
                   <header>
-                    <h1 class="h2 inline-flex bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">How Airbnb leverages Stellar X to onboard new hosts</h1>
+                    <h1 class="h2 inline-flex bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{ $t('customer.title') }}</h1>
                     <div class="text-sm flex items-center space-x-4 mb-8">
                       <img class="rounded-full" src="@/assets/images/customer-avatar-03.jpg" width="32" height="32" alt="Customer Avatar 03" />
                       <div>
-                        <div class="text-slate-300 font-medium">Becky Taylor</div>
-                        <div class="text-slate-500">Product Marketing Manager</div>
+                        <div class="text-slate-300 font-medium">{{ $t('customer.author') }}</div>
+                        <div class="text-slate-500">{{ $t('customer.position') }}</div>
                       </div>
                     </div>
                   </header>
