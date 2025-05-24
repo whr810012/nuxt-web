@@ -13,6 +13,7 @@
     "resetPassword": "重置密码",
     "SignOut": "退出登录",
     "email": "邮箱",
+    "userName": "用户名",
     "password": "密码",
     "forgot": "忘记密码？",
     "verification": "验证码",

@@ -33,7 +33,7 @@
             <form @submit="signIn">
               <div class="space-y-4">
                 <div>
-                  <label class="block text-sm text-slate-300 font-medium mb-1" for="email">{{ $t('auth.email') }}</label>
+                  <label class="block text-sm text-slate-300 font-medium mb-1" for="email">{{ $t('auth.userName') }}</label>
                   <input v-model="email" id="email" class="form-input w-full" required />
                 </div>
                 <div>
