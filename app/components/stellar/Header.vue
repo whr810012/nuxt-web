@@ -62,7 +62,7 @@
           <div class="flex items-end mx-2 mt-1">
             <LanguageSwitcher />
           </div>
-          <template v-if="!userStore.getUserInfo?.username">
+          <template v-if="!userStore.getUserInfo?.nickName">
             <li>
               <router-link
                 class="font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out"
@@ -84,7 +84,7 @@
               <div
                 @click="toggleDropdown"
                 class="flex items-center cursor-pointer font-medium text-sm text-slate-300 hover:text-white whitespace-nowrap transition duration-150 ease-in-out">
-                <span>{{userStore.getUserInfo?.username}}</span>
+                <span>{{userStore.getUserInfo?.nickName}}</span>
                 <svg class="w-4 h-4 ml-1" :class="{'rotate-180': isDropdownOpen}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                 </svg>
