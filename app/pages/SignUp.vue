@@ -220,11 +220,9 @@ const handleSignUp = async () => {
     });
     
     // 注册成功后处理响应
-    if (response) {      
-      showToast('注册成功');
-      // 注册成功后跳转到首页或其他页面
-      router.push('/signin');
-    }
+    showToast('注册成功');
+    // 注册成功后跳转到首页或其他页面
+    router.push('/signin');
   } catch (error) {
     console.error('注册失败:', error);
     // 显示错误消息
