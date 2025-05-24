@@ -109,6 +109,7 @@
 
 <script setup lang="ts">
 import { useUserStore } from '~/store/user'
+import { encrypt } from '~/utils/encrypt'
 
 const router = useRouter()
 const userStore = useUserStore()
@@ -124,9 +125,12 @@ const signIn = async (event: any) => {
     return showToast('请输入完整信息');
   }
   try {
+    // 对密码进行AES加密
+    const encryptedPassword = encrypt(password.value);
+    
     const formData = new FormData();
     formData.append('userName', email.value);
-    formData.append('password', password.value);
+    formData.append('password', encryptedPassword); // 使用加密后的密码
     formData.append('captcha', captchaCode.value);
     formData.append('captchaKey', uuid.value);
     const response = await post('/user/login', formData);
