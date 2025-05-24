@@ -167,8 +167,9 @@
 <script setup lang="ts">
 import { useUserStore } from '~/store/user'
 import { useRouter } from 'vue-router'
-import { toast } from '#build/ui'
+import { useToast } from '~/composables/useToast'
 import LanguageSwitcher from './LanguageSwitcher.vue'
+const { showToast } = useToast()
 // import LanguageSwitcher from './LanguageSwitcher.vue'
 
 const userStore = useUserStore()
@@ -212,24 +213,6 @@ const keyHandler = ({ keyCode }: KeyboardEvent) => {
     mobileNavOpen.value = false
     isDropdownOpen.value = false
   }
-}
-const showToast = (message: string) => {
-  console.log('Toast message:', message); // 调试信息
-  // 创建一个新的 toast 元素
-  const toast = document.createElement('div');
-  toast.className = 'toast'; // 使用已有的样式类
-  toast.textContent = message;
-  
-  // 将 toast 元素添加到 body 中
-  document.body.appendChild(toast);
-
-  // 3秒后隐藏并移除元素
-  setTimeout(() => {
-    toast.classList.add('hidden');
-    setTimeout(() => {
-      toast.remove();
-    }, 500); // 确保过渡效果完成后移除
-  }, 3000);
 }
 
 onMounted(() => {

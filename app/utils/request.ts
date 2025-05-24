@@ -48,7 +48,6 @@ export const request = async <T = any>(
         throw new Error(data.message || '请求失败');
       }
       // 确保返回的是处理后的数据对象
-      return data;  
     },
     // 错误处理
     onResponseError({ response }) {
@@ -66,7 +65,10 @@ export const request = async <T = any>(
   };
 
   try {
-    const response = await useFetch<ApiResponse<T>>(url, finalConfig);
+    const response = await useFetch<ApiResponse<T>>(url, {
+      ...finalConfig,
+      server: false // 禁止在服务端执行
+    });
     console.log('Fetch successful:', response);
     const { data, error } = response;
     console.log('data',data);
@@ -75,15 +77,22 @@ export const request = async <T = any>(
     if (error.value) {
       throw error.value;
     }
+    // 等待数据加载完成
+    console.log('data类型:', typeof data.value);
+    console.log('data.value是否存在:', data.value !== undefined && data.value !== null);
+    console.log('data.value详情:', JSON.stringify(data.value));
     
-    if (!data.value) {
-      throw new Error('请求失败');
+    if (!data.value || !data.value.data) {
+      console.log('No data returned:', data.value);
+      throw new Error('请求失败：没有返回数据');
     }
     
-    if (data.value.code === 200) {
+    if (data.value && data.value.code === 200) {
       return data.value.data as T;
-    } else {
+    } else if (data.value) {
       throw new Error(data.value.message || '请求失败');
+    } else {
+      throw new Error('请求失败：响应数据格式错误');
     }
   } catch (error) {
     console.error('Request error:', error);
