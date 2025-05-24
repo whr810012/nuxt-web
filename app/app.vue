@@ -15,12 +15,15 @@ console.log('app running...')
 const init = async () => {
   console.log('initinit');
   const token = localStorage.getItem('token')
-  console.log('token', token);
+  const userId = localStorage.getItem('userId')
+  if (!!userId) {
+    userStore.setUserId(userId)
+  }
   if (!!token) {
     console.log('token11', token);
     userStore.setToken(token)
     try {
-      const userInfo = await get('/user/query')
+      const userInfo = await get(`/user/query?id=${userId}`)
       userStore.setUserInfo(userInfo)
     } catch (error: any) {
       console.log('获取用户信息失败', error);

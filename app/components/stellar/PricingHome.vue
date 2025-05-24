@@ -11,10 +11,10 @@
         <!-- Content -->
         <div class="max-w-3xl mx-auto text-center pb-12 md:pb-20">
           <div>
-            <div class="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">Pricing plans</div>
+            <div class="inline-flex font-medium bg-clip-text text-transparent bg-linear-to-r from-purple-500 to-purple-200 pb-3">{{ $t('pricing.tagline') }}</div>
           </div>
-          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">Flexible plans and features</h2>
-          <p class="text-lg text-slate-400">All the lorem ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
+          <h2 class="h2 bg-clip-text text-transparent bg-linear-to-r from-slate-200/60 via-slate-200 to-slate-200/60 pb-4">{{ $t('pricing.title') }}</h2>
+          <p class="text-lg text-slate-400">{{ $t('pricing.description') }}</p>
         </div>
         
         <PricingTable />

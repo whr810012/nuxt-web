@@ -44,7 +44,6 @@ export const request = async <T = any>(
     // 响应拦截
     onResponse({ response }) {
       const data = response._data as ApiResponse<T>;
-      console.log('Response received:', data);
       if (data.code !== 200) {
         throw new Error(data.message || '请求失败');
       }

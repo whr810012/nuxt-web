@@ -3,7 +3,9 @@ import { defineStore } from 'pinia'
 export const useUserStore = defineStore('user', {
   state: () => ({
     token: '',
-    userInfo: null as any,
+    userInfo: {
+      userId: '',
+    } as any,
     isLoggedIn: false
   }),
 
@@ -18,6 +20,12 @@ export const useUserStore = defineStore('user', {
       this.token = token
       if (typeof localStorage !== 'undefined') {
         localStorage.setItem('token', token)
+      }
+    },
+    setUserId(id: string) {
+      this.userInfo.userId = id
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('userId', id)
       }
     },
 

@@ -52,7 +52,7 @@
                     <input id="captcha" v-model="captchaCode" class="form-input flex-1" type="text" required />
                     <!-- 验证码图片，点击可刷新 -->
                     <img :src="img" @click="init"
-                      class="h-10 w-24 cursor-pointer rounded border border-slate-700 bg-slate-800"
+                      class="h-10 w-24 cursor-pointer rounded border border-slate-800"
                       alt="Verification Code" />
                   </div>
                 </div>
@@ -112,8 +112,8 @@ import { useUserStore } from '~/store/user'
 
 const router = useRouter()
 const userStore = useUserStore()
-const email = ref()
-const password = ref()
+const email = ref('ersan')
+const password = ref('123456')
 const captchaCode = ref()
 const img = ref()
 const uuid = ref()
@@ -133,13 +133,14 @@ const signIn = async (event: any) => {
     console.log('response', response);
     if (response?.token) {
       showToast('登录成功');
-      userStore.setToken(response.token);
-      localStorage.setItem('token', response.token);
-      useCookie('token', response.token);
+      userStore.setToken(response.token)
+      userStore.setUserId(response.userId)
+      localStorage.setItem('token', response.token)
+      localStorage.setItem('userId', JSON.stringify(response.userId))
       // userStore.setUserInfo({username: email.value});
       // router.push('/');
       try {
-        const userInfo = await get('/user/query')
+        const userInfo = await get(`/user/query?id=${response.userId}`)
         userStore.setUserInfo(userInfo)
         router.push('/');
       } catch (error: any) {
