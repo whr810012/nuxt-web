@@ -110,9 +110,11 @@
 <script setup lang="ts">
 import { useUserStore } from '~/store/user'
 import { encrypt } from '~/utils/encrypt'
+import { useToast } from '~/composables/useToast'
 
 const router = useRouter()
 const userStore = useUserStore()
+const { showToast } = useToast()
 const email = ref('ersan')
 const password = ref('123456')
 const captchaCode = ref()
@@ -166,41 +168,11 @@ const init = async () => {
   img.value = 'data:image/png;base64,' + response.img
   uuid.value = response.uuid
 }
-const showToast = (message: string) => {
-  console.log('Toast message:', message); // 调试信息
-  // 创建一个新的 toast 元素
-  const toast = document.createElement('div');
-  toast.className = 'toast'; // 使用已有的样式类
-  toast.textContent = message;
-  
-  // 将 toast 元素添加到 body 中
-  document.body.appendChild(toast);
 
-  // 3秒后隐藏并移除元素
-  setTimeout(() => {
-    toast.classList.add('hidden');
-    setTimeout(() => {
-      toast.remove();
-    }, 500); // 确保过渡效果完成后移除
-  }, 3000);
-}
 
 init()
 </script>
 
 <style>
-.toast {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #9d19d1; /* 更深的背景色，与页面背景一致 */
-  padding: 15px 30px; /* 增加内边距 */
-  border-radius: 8px; /* 更圆的边角 */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* 更明显的阴影 */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* 添加平滑的变换效果 */
-  color: #e0e0e0; /* 更浅的文字颜色，与页面文字一致 */
-  opacity: 1; /* 默认显示 */
-  z-index: 1000; /* 确保在最上层 */
-}
+/* Toast样式已移至useToast.ts */
 </style>

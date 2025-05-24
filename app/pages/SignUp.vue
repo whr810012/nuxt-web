@@ -28,36 +28,47 @@
           <!-- Form -->
           <div class="max-w-sm mx-auto">
 
-            <form>
+            <form @submit.prevent="handleSignUp">
               <div class="space-y-4">
                 <div>
-                  <label class="block text-sm text-slate-300 font-medium mb-1" for="company">{{ $t('auth.company') }} <span class="text-rose-500">*</span></label>
-                  <input id="company" class="form-input w-full" type="text" placeholder="mE.g., Acme Inc." required />
+                  <label class="block text-sm text-slate-300 font-medium mb-1" for="nick-name">昵称 <span class="text-rose-500">*</span></label>
+                  <input id="nick-name" v-model="formData.nickName" class="form-input w-full" type="text" placeholder="请输入昵称（至少2个字符）" required />
+                  <p v-if="errors.nickName" class="text-rose-500 text-xs mt-1">{{ errors.nickName }}</p>
                 </div>
                 <div>
-                  <label class="block text-sm text-slate-300 font-medium mb-1" for="full-name">{{ $t('auth.fullName') }} <span class="text-rose-500">*</span></label>
-                  <input id="full-name" class="form-input w-full" type="text" placeholder="E.g., Mark Rossi" required />
+                  <label class="block text-sm text-slate-300 font-medium mb-1" for="user-name">用户名 <span class="text-rose-500">*</span></label>
+                  <input id="user-name" v-model="formData.userName" class="form-input w-full" type="text" placeholder="请输入用户名（仅英文和数字，至少5个字符）" required />
+                  <p v-if="errors.userName" class="text-rose-500 text-xs mt-1">{{ errors.userName }}</p>
                 </div>
                 <div>
-                  <label class="block text-sm text-slate-300 font-medium mb-1" for="email">{{ $t('auth.email') }} <span class="text-rose-500">*</span></label>
-                  <input id="email" class="form-input w-full" type="email" placeholder="markrossi@company.com" required />
+                  <label class="block text-sm text-slate-300 font-medium mb-1" for="email">邮箱 <span class="text-rose-500">*</span></label>
+                  <input id="email" v-model="formData.email" class="form-input w-full" type="email" placeholder="example@company.com" required />
+                  <p v-if="errors.email" class="text-rose-500 text-xs mt-1">{{ errors.email }}</p>
                 </div>
                 <div>
-                  <label class="block text-sm text-slate-300 font-medium mb-1" for="password">{{ $t('auth.password') }} <span class="text-rose-500">*</span></label>
-                  <input id="password" class="form-input w-full" type="password" autocomplete="on" required />
+                  <label class="block text-sm text-slate-300 font-medium mb-1" for="phonenumber">手机号 <span class="text-rose-500">*</span></label>
+                  <input id="phonenumber" v-model="formData.phonenumber" class="form-input w-full" type="tel" placeholder="请输入手机号" required />
+                  <p v-if="errors.phonenumber" class="text-rose-500 text-xs mt-1">{{ errors.phonenumber }}</p>
                 </div>
                 <div>
-                  <label class="block text-sm text-slate-300 font-medium mb-1" for="referrer">{{ $t('auth.referrer') }} <span class="text-rose-500">*</span></label>
-                  <select id="referrer" class="form-select text-sm py-2 w-full" required>
-                    <option>Google</option>
-                    <option>Medium</option>
-                    <option>GitHub</option>
+                  <label class="block text-sm text-slate-300 font-medium mb-1" for="password">密码 <span class="text-rose-500">*</span></label>
+                  <input id="password" v-model="formData.password" class="form-input w-full" type="password" autocomplete="on" placeholder="至少6个字符，包含数字、大小写字母" required />
+                  <p v-if="errors.password" class="text-rose-500 text-xs mt-1">{{ errors.password }}</p>
+                </div>
+                <div>
+                  <label class="block text-sm text-slate-300 font-medium mb-1" for="gender">性别 <span class="text-rose-500">*</span></label>
+                  <select id="gender" v-model="formData.sex" class="form-select text-sm py-2 w-full" required>
+                    <option value="">请选择</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
                   </select>
+                  <p v-if="errors.sex" class="text-rose-500 text-xs mt-1">{{ errors.sex }}</p>
                 </div>
               </div>
               <div class="mt-6">
-                <button class="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group">
-                  {{ $t('auth.signUp') }} <span class="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
+                <button type="submit" class="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group" :disabled="loading">
+                  <span v-if="loading">{{ $t('common.loading') }}...</span>
+                  <span v-else>{{ $t('auth.signUp') }} <span class="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></span>
                 </button>
               </div>
             </form>
@@ -105,8 +116,127 @@
   </main>
 </template>
 
+<script setup>
+import { ref, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { useUserStore } from '~/store/user';
+import { post } from '~/utils/request';
+import { useToast } from '~/composables/useToast';
+import { encrypt } from '~/utils/encrypt';
+
+const router = useRouter();
+const userStore = useUserStore();
+const { showToast } = useToast();
+const loading = ref(false);
+
+const formData = ref({
+  nickName: '',
+  userName: '',
+  email: '',
+  phonenumber: '',
+  password: '',
+  sex: ''
+});
+
+const errors = reactive({
+  nickName: '',
+  userName: '',
+  email: '',
+  phonenumber: '',
+  password: '',
+  sex: ''
+});
+
+// 验证函数
+const validate = () => {
+  let isValid = true;
+  
+  // 重置所有错误
+  Object.keys(errors).forEach(key => {
+    errors[key] = '';
+  });
+  
+  // 验证昵称
+  if (formData.value.nickName.length < 2) {
+    errors.nickName = '昵称至少需要2个字符';
+    isValid = false;
+  }
+  
+  // 验证用户名
+  if (!/^[a-zA-Z0-9]{5,}$/.test(formData.value.userName)) {
+    errors.userName = '用户名只能包含英文和数字，且至少5个字符';
+    isValid = false;
+  }
+  
+  // 验证密码
+  if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,}$/.test(formData.value.password)) {
+    errors.password = '密码至少6个字符，且必须包含数字、大小写字母';
+    isValid = false;
+  }
+  
+  // 验证邮箱
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.value.email)) {
+    errors.email = '请输入有效的邮箱地址';
+    isValid = false;
+  }
+  
+  // 验证手机号
+  if (!/^1[3-9]\d{9}$/.test(formData.value.phonenumber)) {
+    errors.phonenumber = '请输入有效的手机号';
+    isValid = false;
+  }
+  
+  // 验证性别
+  if (!formData.value.sex) {
+    errors.sex = '请选择性别';
+    isValid = false;
+  }
+  
+  return isValid;
+};
+
+const handleSignUp = async () => {
+  // 表单验证
+  if (!validate()) {
+    return;
+  }
+  
+  try {
+    loading.value = true;
+    
+    // 对敏感信息进行加密
+    const encryptedPassword = encrypt(formData.value.password);
+    const encryptedEmail = encrypt(formData.value.email);
+    const encryptedPhonenumber = encrypt(formData.value.phonenumber);
+    
+    // 调用注册接口
+    const response = await post('/user/enroll', {
+      nickName: formData.value.nickName,
+      userName: formData.value.userName,
+      email: encryptedEmail, // 使用加密后的邮箱
+      phonenumber: encryptedPhonenumber, // 使用加密后的手机号
+      password: encryptedPassword, // 使用加密后的密码
+      sex: formData.value.sex
+    });
+    
+    // 注册成功后处理响应
+    if (response) {      
+      showToast('注册成功');
+      // 注册成功后跳转到首页或其他页面
+      router.push('/signin');
+    }
+  } catch (error) {
+    console.error('注册失败:', error);
+    // 显示错误消息
+    showToast(error.message || '注册失败，请重试');
+  } finally {
+    loading.value = false;
+  }
+};
+</script>
+
 <script>
 export default {
-  name: 'SignIn',
+  name: 'SignUp',
 }
 </script>

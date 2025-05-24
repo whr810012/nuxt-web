@@ -1,5 +1,6 @@
 import type { UseFetchOptions } from 'nuxt/app';
 import { useUserStore } from '~/store/user';
+import { useToast } from '~/composables/useToast';
 
 // 定义错误类型
 type FetchError = any;
@@ -7,6 +8,9 @@ type FetchError = any;
 // 定义请求配置接口
 interface RequestConfig extends UseFetchOptions<any> {
   loading?: boolean;
+  showErrorToast?: boolean; // 是否显示错误提示，默认为true
+  showSuccessToast?: boolean; // 是否显示成功提示，默认为false
+  successMessage?: string; // 自定义成功提示消息
 }
 
 // 定义响应接口
@@ -17,27 +21,30 @@ interface ApiResponse<T = any> {
 }
 
 // 创建请求实例
-export const request = async <T = any>(
+export const requestWithToast = async <T = any>(
   url: string,
   config: RequestConfig = {}
 ): Promise<T> => {
+  const { showToast } = useToast();
+  
   // 默认配置
   const defaultConfig: RequestConfig = {
     baseURL: 'http://localhost:8082',
     headers: {
       'Content-Type': 'application/json',
     },
+    showErrorToast: true, // 默认显示错误提示
+    showSuccessToast: false, // 默认不显示成功提示
     // 请求拦截
     onRequest({ options }) {
       const userStore = useUserStore();
       const token = userStore.getToken;
-      console.log('options',options);
       // 有两个接口不需要token
       if (token) {
-        if (url === '/user/login' || url === '/captcha' || url === '/user/enroll') {
+        if (url === '/user/login' || url === '/captcha') {
           return;
         } else{
-          options.headers.set('Authorization', `${token}`);          
+          options.headers.set('Authorization', `${token}`);
         }
       }
     },
@@ -48,7 +55,7 @@ export const request = async <T = any>(
         throw new Error(data.message || '请求失败');
       }
       // 确保返回的是处理后的数据对象
-      return data;  
+      return data;
     },
     // 错误处理
     onResponseError({ response }) {
@@ -67,10 +74,7 @@ export const request = async <T = any>(
 
   try {
     const response = await useFetch<ApiResponse<T>>(url, finalConfig);
-    console.log('Fetch successful:', response);
     const { data, error } = response;
-    console.log('data',data);
-    
     
     if (error.value) {
       throw error.value;
@@ -81,41 +85,40 @@ export const request = async <T = any>(
     }
     
     if (data.value.code === 200) {
+      // 显示成功提示
+      if (finalConfig.showSuccessToast) {
+        showToast(finalConfig.successMessage || data.value.message || '操作成功');
+      }
       return data.value.data as T;
     } else {
       throw new Error(data.value.message || '请求失败');
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Request error:', error);
+    // 显示错误提示
+    if (finalConfig.showErrorToast) {
+      showToast(error.message || error.msg || '请求失败');
+    }
     throw error;
   }
 };
 
-// 设置授权头部的辅助函数
-function setAuthorizationHeader(headers: Headers | Record<string, string>, token: string) {
-  if (headers instanceof Headers) {
-    headers.set('Authorization', `Bearer ${token}`);
-  } else {
-    headers['Authorization'] = `Bearer ${token}`;
-  }
-}
-
 // 导出便捷方法
-export const get = <T = any>(url: string, config?: RequestConfig) => {
-  return request<T>(url, { ...config, method: 'GET' });
+export const getWithToast = <T = any>(url: string, config?: RequestConfig) => {
+  return requestWithToast<T>(url, { ...config, method: 'GET' });
 };
 
-export const post = <T = any>(url: string, data?: any, config?: RequestConfig) => {
+export const postWithToast = <T = any>(url: string, data?: any, config?: RequestConfig) => {
   // 如果 data 是 FormData 类型，则不设置 'Content-Type'，浏览器会自动处理
   const headers = data instanceof FormData ? undefined : { 'Content-Type': 'application/json' };
   
-  return request<T>(url, { ...config, method: 'POST', body: data, headers });
+  return requestWithToast<T>(url, { ...config, method: 'POST', body: data, headers });
 };
 
-export const put = <T = any>(url: string, data?: any, config?: RequestConfig) => {
-  return request<T>(url, { ...config, method: 'PUT', body: data });
+export const putWithToast = <T = any>(url: string, data?: any, config?: RequestConfig) => {
+  return requestWithToast<T>(url, { ...config, method: 'PUT', body: data });
 };
 
-export const del = <T = any>(url: string, config?: RequestConfig) => {
-  return request<T>(url, { ...config, method: 'DELETE' });
+export const delWithToast = <T = any>(url: string, config?: RequestConfig) => {
+  return requestWithToast<T>(url, { ...config, method: 'DELETE' });
 };
