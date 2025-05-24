@@ -186,11 +186,16 @@ const toggleDropdown = () => {
 
 // Handle logout
 const handleLogout = async () => {
-  await get('/user/logout')
-  await userStore.logout()
-  showToast('退出登录成功')
-  isDropdownOpen.value = false
-  router.push('/signin')
+  try{
+    await get('/user/logout')
+    await userStore.logout()
+    showToast('退出登录成功')
+    isDropdownOpen.value = false
+  }
+  catch (error) {
+    console.log(error);
+    
+  }
 }
 
 // close on click outside for both mobile nav and dropdown

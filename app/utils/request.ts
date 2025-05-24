@@ -82,15 +82,13 @@ export const request = async <T = any>(
     console.log('data.value是否存在:', data.value !== undefined && data.value !== null);
     console.log('data.value详情:', JSON.stringify(data.value));
     
-    if (!data.value || !data.value.data) {
+    if (!data.value) {
       console.log('No data returned:', data.value);
       throw new Error('请求失败：没有返回数据');
     }
     
-    if (data.value && data.value.code === 200) {
+    if (data.value.code === 200) {
       return data.value.data as T;
-    } else if (data.value) {
-      throw new Error(data.value.message || '请求失败');
     } else {
       throw new Error('请求失败：响应数据格式错误');
     }
