@@ -140,7 +140,7 @@ const signIn = async (event: any) => {
       // userStore.setUserInfo({username: email.value});
       // router.push('/');
       try {
-        const userInfo = await get(`/user/query?id=${response.userId}`)
+        const userInfo = await get(`/user/query`)
         userStore.setUserInfo(userInfo)
         router.push('/');
       } catch (error: any) {

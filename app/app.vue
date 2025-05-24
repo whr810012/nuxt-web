@@ -23,7 +23,7 @@ const init = async () => {
     console.log('token11', token);
     userStore.setToken(token)
     try {
-      const userInfo = await get(`/user/query?id=${userId}`)
+      const userInfo = await get(`/user/query`)
       userStore.setUserInfo(userInfo)
     } catch (error: any) {
       console.log('获取用户信息失败', error);
