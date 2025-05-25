@@ -150,7 +150,7 @@ const activeSection = ref('profile') // 添加状态变量控制显示哪个部�
 
 // 获取用户信息
 const userInfo = computed(() => userStore.getUserInfo)
-
+const changeFile = ref(null)
 // 个人资料表单数据
 const profileData = reactive({
   nickName: '',
@@ -180,6 +180,7 @@ onMounted(() => {
 
 const handleAvatarUpload = (event) => {
   const file = event.target.files[0];
+  changeFile.value = file;
   if (file) {
     // 创建一个URL来预览图片
     const imageUrl = URL.createObjectURL(file);
@@ -203,6 +204,9 @@ const updateProfile = async () => {
     }
     if (profileData.sex !== userInfo.value.sex) {
       changeForm.append('sex', profileData.sex);
+    }
+    if (changeFile.value) {
+      changeForm.append('file', changeFile.value);
     }
     // 调用API更新用户信息
     const response = await post('/user/amend', changeForm)
