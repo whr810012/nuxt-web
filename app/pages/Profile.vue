@@ -265,17 +265,19 @@ const updateProfile = async () => {
     if (changeFile.value) {
       changeForm.append('file', changeFile.value);
     }
+    console.log(userInfo.value, userStore.getUserInfo);
+    changeForm.append('id', userStore.getUserInfo.id )
     // 调用API更新用户信息
     const response = await post('/user/amend', changeForm)
 
-    if (response.code === 200) {
-      // 更新本地存储的用户信息
-      userStore.setUserInfo({
-        ...userInfo.value,
-        ...profileData
-      })
+    // if (response.code === 200) {
+    //   // 更新本地存储的用户信息
+    //   userStore.setUserInfo({
+    //     ...userInfo.value,
+    //     ...profileData
+    //   })
       showToast('个人资料更新成功')
-    }
+    // }
   } catch (error) {
     console.error('更新个人资料失败:', error)
     showToast('个人资料更新失败')
