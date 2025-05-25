@@ -68,6 +68,7 @@
                 <div>
                   <label class="block text-sm text-slate-300 font-medium mb-1" for="nick-name">昵称</label>
                   <input id="nick-name" v-model="profileData.nickName" class="form-input w-full" type="text" required />
+                  <p v-if="errors.nickName" class="text-rose-500 text-xs mt-1">{{ errors.nickName }}</p>
                 </div>
                 <div>
                   <label class="block text-sm text-slate-300 font-medium mb-1" for="user-name">用户名</label>
@@ -77,6 +78,7 @@
                 <div>
                   <label class="block text-sm text-slate-300 font-medium mb-1" for="email">邮箱</label>
                   <input id="email" v-model="profileData.email" class="form-input w-full" type="email" />
+                  <p v-if="errors.email" class="text-rose-500 text-xs mt-1">{{ errors.email }}</p>
                 </div>
                 <div>
                   <label class="block text-sm text-slate-300 font-medium mb-1" for="phonenumber">手机号</label>
@@ -167,6 +169,15 @@ const passwordData = reactive({
   confirmPassword: ''
 })
 
+const errors = reactive({
+  nickName: '',
+  userName: '',
+  email: '',
+  phonenumber: '',
+  password: '',
+  sex: ''
+});
+
 // 初始化表单数据
 onMounted(() => {
   if (userInfo.value) {
@@ -190,8 +201,54 @@ const handleAvatarUpload = (event) => {
   }
 };
 
+const validate = () => {
+  let isValid = true;
+  
+  // 重置所有错误
+  Object.keys(errors).forEach(key => {
+    errors[key] = '';
+  });
+  console.log('验证开始');
+  // 验证昵称
+  if (profileData.nickName.length < 2) {
+    errors.nickName = '昵称至少需要2个字符';
+    console.log('昵称错误:', errors.nickName);
+    isValid = false;
+  }
+  
+  // 验证用户名
+  if (!/^[a-zA-Z0-9]{5,}$/.test(profileData.userName)) {
+    errors.userName = '用户名只能包含英文和数字，且至少5个字符';
+    isValid = false;
+  }
+  
+  
+  // 验证邮箱
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profileData.email)) {
+    errors.email = '请输入有效的邮箱地址';
+    isValid = false;
+  }
+  
+  // 验证手机号
+  if (!/^1[3-9]\d{9}$/.test(profileData.phonenumber)) {
+    errors.phonenumber = '请输入有效的手机号';
+    isValid = false;
+  }
+  
+  // 验证性别
+  if (!profileData.sex) {
+    errors.sex = '请选择性别';
+    isValid = false;
+  }
+  
+  return isValid;
+};
+
 // 更新个人资料
 const updateProfile = async () => {
+  if (!validate()) {
+    return;
+  }
   try {
     loading.value = true
     // 发送表单数据
