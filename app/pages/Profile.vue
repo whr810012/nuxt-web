@@ -179,13 +179,50 @@ const errors = reactive({
 });
 
 // 初始化表单数据
-onMounted(() => {
+onMounted(async() => {
+  await nextTick()
+  const init = async () => {
+    const token = localStorage.getItem('token')
+    const userId = localStorage.getItem('userId')
+    if (!!token) {
+      console.log('token11', token)
+      userStore.setToken(token)
+      try {
+        console.log('开始请求用户信息')
+        let userInfo = await get(`/user/query`)
+        if (userInfo.email) {
+          userInfo.email = decrypt(userInfo.email)
+        }
+        if (userInfo.phonenumber) {
+          userInfo.phonenumber = decrypt(userInfo.phonenumber)
+        }
+        console.log('userInfo 响应数据:', userInfo);
+        userStore.setUserInfo(userInfo)
+        console.log('存储后的用户信息:', userStore.getUserInfo);
+      } catch (error) {
+        console.log('获取用户信息失败', error);
+        // 打印更详细的错误信息
+        if (error.response) {
+          // 服务器响应了，但状态码不是2xx
+          console.log('错误状态:', error.response.status);
+          console.log('错误数据:', error.response.data);
+        } else if (error.request) {
+          // 请求发出但没有收到响应
+          console.log('没有收到响应:', error.request);
+        } else {
+          // 设置请求时发生错误
+          console.log('请求错误:', error.message);
+        }
+      }
+    }
+  }
+  await init()
   if (userInfo.value) {
     profileData.nickName = userInfo.value.nickName || ''
     profileData.userName = userInfo.value.userName || ''
     profileData.email = userInfo.value.email || ''
     profileData.phonenumber = userInfo.value.phonenumber || ''
-    profileData.sex = userInfo.value.sex || '男'
+    profileData.sex = userInfo.value.sex
   }
 })
 
@@ -203,7 +240,7 @@ const handleAvatarUpload = (event) => {
 
 const validate = () => {
   let isValid = true;
-  
+
   // 重置所有错误
   Object.keys(errors).forEach(key => {
     errors[key] = '';
@@ -215,32 +252,32 @@ const validate = () => {
     console.log('昵称错误:', errors.nickName);
     isValid = false;
   }
-  
+
   // 验证用户名
   if (!/^[a-zA-Z0-9]{5,}$/.test(profileData.userName)) {
     errors.userName = '用户名只能包含英文和数字，且至少5个字符';
     isValid = false;
   }
-  
-  
+
+
   // 验证邮箱
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(profileData.email)) {
     errors.email = '请输入有效的邮箱地址';
     isValid = false;
   }
-  
+
   // 验证手机号
   if (!/^1[3-9]\d{9}$/.test(profileData.phonenumber)) {
     errors.phonenumber = '请输入有效的手机号';
     isValid = false;
   }
-  
+
   // 验证性别
   if (!profileData.sex) {
     errors.sex = '请选择性别';
     isValid = false;
   }
-  
+
   return isValid;
 };
 
@@ -266,7 +303,7 @@ const updateProfile = async () => {
       changeForm.append('file', changeFile.value);
     }
     console.log(userInfo.value, userStore.getUserInfo);
-    changeForm.append('id', userStore.getUserInfo.id )
+    changeForm.append('id', userStore.getUserInfo.id)
     // 调用API更新用户信息
     const response = await post('/user/amend', changeForm)
 
@@ -276,7 +313,7 @@ const updateProfile = async () => {
     //     ...userInfo.value,
     //     ...profileData
     //   })
-      showToast('个人资料更新成功')
+    showToast('个人资料更新成功')
     // }
   } catch (error) {
     console.error('更新个人资料失败:', error)
