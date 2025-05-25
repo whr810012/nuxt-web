@@ -262,6 +262,7 @@ const handleLogout = async () => {
     await userStore.logout()
     showToast('退出登录成功')
     isDropdownOpen.value = false
+    router.push('/')
   }
   catch (error) {
     console.log(error);

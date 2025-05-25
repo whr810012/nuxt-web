@@ -11,36 +11,37 @@
             <div class="mb-4 sm:mb-0">
               <div class="mb-4">
                 <!-- Logo -->
-                <router-link class="inline-flex" to="/" aria-label="Cruip">
-                  <img src="@/assets/images/logo.svg" width="38" height="38" alt="Stellar">
+                <router-link class="inline-flex" to="/" aria-label="智旅星途">
+                  <img src="@/assets/images/logo.png" class="rounded-[50%]" width="40" height="40" alt="智旅星途">
                 </router-link>
               </div>
-              <div class="text-sm text-slate-300">&copy; Cruip.com <span class="text-slate-500">-</span> {{ $t('footer.copyright') }}</div>
+              <div class="text-sm text-slate-300">&copy; 智旅星途 <span class="text-slate-500">-</span> {{ $t('footer.copyright') }}</div>
+              <div class="mt-2 text-sm text-slate-400">{{ $t('footer.slogan') }}</div>
             </div>
-            <!-- Social links -->
+            <!-- Social links
             <ul class="flex">
               <li>
-                <a class="flex justify-center items-center text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out" href="#0" aria-label="Twitter">
+                <a class="flex justify-center items-center text-blue-500 hover:text-blue-400 transition duration-150 ease-in-out" href="#0" aria-label="微信">
                   <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                    <path d="m13.063 9 3.495 4.475L20.601 9h2.454l-5.359 5.931L24 23h-4.938l-3.866-4.893L10.771 23H8.316l5.735-6.342L8 9h5.063Zm-.74 1.347h-1.457l8.875 11.232h1.36l-8.778-11.232Z" />
+                    <path d="M21.26 20.127c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5m-10.5-5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5m15.25.627C26.01 10.38 20.58 6 14.13 6 7.13 6 1.5 10.9 1.5 17c0 3.42 1.85 6.53 4.88 8.63.23.16.38.42.38.71l-.08 2.74c-.02.33.25.6.58.6.1 0 .2-.03.29-.08l3.08-1.79c.19-.11.41-.17.63-.17.08 0 .16.01.24.03 1.01.26 2.08.4 3.19.4 7 0 12.63-4.9 12.63-11 0-.71-.08-1.4-.22-2.07" />
                   </svg>
                 </a>
               </li>
               <li class="ml-2">
-                <a class="flex justify-center items-center text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out" href="#0" aria-label="Dev.to">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-                    <path class="w-8 h-8 fill-current" d="M12.29 14.3a.69.69 0 0 0-.416-.155h-.623v3.727h.623a.689.689 0 0 0 .416-.156.543.543 0 0 0 .21-.466v-2.488a.547.547 0 0 0-.21-.462ZM22.432 8H9.568C8.704 8 8.002 8.7 8 9.564v12.872A1.568 1.568 0 0 0 9.568 24h12.864c.864 0 1.566-.7 1.568-1.564V9.564A1.568 1.568 0 0 0 22.432 8Zm-8.925 9.257a1.631 1.631 0 0 1-1.727 1.687h-1.657v-5.909h1.692a1.631 1.631 0 0 1 1.692 1.689v2.533ZM17.1 14.09h-1.9v1.372h1.163v1.057H15.2v1.371h1.9v1.056h-2.217a.72.72 0 0 1-.74-.7v-4.471a.721.721 0 0 1 .7-.739H17.1v1.054Zm3.7 4.118c-.471 1.1-1.316.88-1.694 0l-1.372-5.172H18.9l1.058 4.064 1.056-4.062h1.164l-1.378 5.17Z" />
+                <a class="flex justify-center items-center text-blue-500 hover:text-blue-400 transition duration-150 ease-in-out" href="#0" aria-label="微博">
+                  <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.84 21.82a4.41 4.41 0 0 1-5.17-3.43 4.41 4.41 0 0 1 3.43-5.17 4.41 4.41 0 0 1 5.17 3.43 4.41 4.41 0 0 1-3.43 5.17m-1.09-8.59a2.2 2.2 0 0 0-2.58 1.72 2.2 2.2 0 0 0 1.72 2.58 2.2 2.2 0 0 0 2.58-1.72 2.2 2.2 0 0 0-1.72-2.58m2.58 3.44c-.24.38-.8.57-1.24.42-.44-.15-.6-.58-.36-.95.24-.38.78-.57 1.22-.42.44.15.62.58.38.95m.87-1.27c-.08.15-.29.22-.46.15-.17-.05-.24-.22-.15-.36.08-.15.27-.22.44-.15.17.07.24.24.17.36m.2-2.32c-2.3-.6-4.9.55-5.9 2.58-1.02 2.09-.03 4.4 2.29 5.15 2.4.78 5.24-.41 6.23-2.65.97-2.2-.29-4.46-2.62-5.08m8.93-2.22a1.1 1.1 0 0 0-1.09-1.1h-1.09c-1.51-4.85-6.78-7.58-11.7-6.07-4.3 1.32-7.04 5.8-6.07 10.24a1.1 1.1 0 0 0 1.09 1.1h1.09c.6 0 1.09-.5 1.09-1.1 0-.6-.49-1.09-1.09-1.09h-.2c-.77-3.07 1.09-6.22 4.17-7.03 3.5-.91 7.04 1.27 7.85 4.85h-.2a1.1 1.1 0 0 0-1.09 1.1c0 .6.49 1.09 1.09 1.09h1.09a1.1 1.1 0 0 0 1.09-1.1v-.8h.2c.6 0 1.09-.49 1.09-1.09 0-.6-.49-1.09-1.09-1.09h-.2v.8h-1.09c-.05-.2-.1-.39-.17-.58h1.26c.6 0 1.09-.49 1.09-1.09" />
                   </svg>
                 </a>
               </li>
               <li class="ml-2">
-                <a class="flex justify-center items-center text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out" href="#0" aria-label="Github">
+                <a class="flex justify-center items-center text-blue-500 hover:text-blue-400 transition duration-150 ease-in-out" href="#0" aria-label="小红书">
                   <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M16 8.2c-4.4 0-8 3.6-8 8 0 3.5 2.3 6.5 5.5 7.6.4.1.5-.2.5-.4V22c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8.6-.2 1.3-.3 2-.3s1.4.1 2 .3c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.7-3.7 3.9.3.4.6.9.6 1.6v2.2c0 .2.1.5.6.4 3.2-1.1 5.5-4.1 5.5-7.6-.1-4.4-3.7-8-8.1-8z" />
+                    <path d="M24.5 7.5h-17A3.5 3.5 0 0 0 4 11v10a3.5 3.5 0 0 0 3.5 3.5h17a3.5 3.5 0 0 0 3.5-3.5V11a3.5 3.5 0 0 0-3.5-3.5zm-8.45 11.95h-5.2v-1.5h5.2v1.5zm5.2-4h-10.4v-1.5h10.4v1.5z" />
                   </svg>
                 </a>
               </li>
-            </ul>
+            </ul> -->
           </div>
         </div>
 

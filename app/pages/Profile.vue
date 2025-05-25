@@ -23,7 +23,7 @@
             :class="{'bg-purple-500 text-white': activeSection === 'profile', 'bg-slate-700/50 text-slate-300 hover:bg-slate-700': activeSection !== 'profile'}">
             个人信息
           </button>
-          <button @click="toggleSection('password')"
+          <button @click="toggleSection('password')" v-if="false"
             class="flex-1 py-2 px-4 rounded-lg transition-all duration-300 font-medium text-center"
             :class="{'bg-purple-500 text-white': activeSection === 'password', 'bg-slate-700/50 text-slate-300 hover:bg-slate-700': activeSection !== 'password'}">
             修改密码
@@ -76,7 +76,8 @@
               </div>
               <div>
                 <label class="block text-sm text-slate-300 font-medium mb-1" for="phonenumber">手机号</label>
-                <input id="phonenumber" v-model="profileData.phonenumber" class="form-input w-full" type="tel" />
+                <input id="phonenumber" v-model="profileData.phonenumber" class="form-input w-full" type="tel" disabled />
+                <p class="text-xs text-slate-500 mt-1">手机号不可修改</p>
               </div>
               <div>
                 <label class="block text-sm text-slate-300 font-medium mb-1" for="gender">性别</label>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
+  <defs>
+    <linearGradient id="b" x1="87.629%" x2="9.97%" y1="28.473%" y2="86.882%">
+      <stop offset="0%" stop-color="#F1F5F9" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#F1F5F9"/>
+    </linearGradient>
+    <filter id="a" width="141.4%" height="141.4%" x="-20.7%" y="-20.7%" filterUnits="objectBoundingBox">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="nonzero">
+    <!-- 背景圆形 -->
+    <path fill="#4F86F7" d="M19 33.5c-8.008 0-14.5-6.492-14.5-14.5S10.992 4.5 19 4.5 33.5 10.992 33.5 19 27.008 33.5 19 33.5Z" filter="url(#a)"/>
+    <path fill="url(#b)" d="M19 33.5c-8.008 0-14.5-6.492-14.5-14.5S10.992 4.5 19 4.5 33.5 10.992 33.5 19 27.008 33.5 19 33.5Z"/>
+    
+    <!-- 地球图标 -->
+    <path fill="#FFFFFF" d="M19 10c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm1.5 16.55c-3.97-.82-7-4.33-7-8.55 0-.94.15-1.83.43-2.67l4.57 4.57v1c0 1.1.9 2 2 2v3.65zm4.66-2.71c-.25-.71-.88-1.21-1.66-1.29v-2c0-.55-.45-1-1-1h-5v-2c0-.55.45-1 1-1h2c.55 0 1-.45 1-1v-2h2c1.1 0 2-.9 2-2v-.41c2.93 1.18 5 4.05 5 7.41 0 2.08-.8 3.97-2.1 5.39l-3.24-1.1z"/>
+  </g>
+</svg>

@@ -10,7 +10,9 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 import './assets/css/style.css'
 console.log('app running...')
-
+useHead({
+  title: '智旅星途',
+})
 onMounted(() => {
   AOS.init({
     once: true,

@@ -34,42 +34,43 @@
   },
   "footer": {
     "copyright": "版权所有",
+    "slogan": "智旅星途，伴你踏上每一段精彩的旅程，探索未知，发现美好，实现每一个旅行梦想。",
     "products": {
-      "title": "产品",
-      "features": "功能",
-      "integrations": "集成",
-      "pricing": "价格与方案",
-      "changelog": "更新日志",
-      "method": "我们的方法"
+      "title": "旅行服务",
+      "features": "特色行程",
+      "integrations": "旅行攻略",
+      "pricing": "价格与套餐",
+      "changelog": "最新活动",
+      "method": "预订方式"
     },
     "company": {
-      "title": "公司",
-      "about": "关于我们",
-      "diversity": "多元化与包容",
-      "blog": "博客",
-      "careers": "招聘",
-      "financial": "财务报表"
+      "title": "关于我们",
+      "about": "品牌故事",
+      "diversity": "企业文化",
+      "blog": "旅行博客",
+      "careers": "加入我们",
+      "financial": "合作伙伴"
     },
     "resources": {
-      "title": "资源",
-      "community": "社区",
+      "title": "旅行资源",
+      "community": "旅行社区",
       "terms": "服务条款",
-      "report": "报告漏洞"
+      "report": "问题反馈"
     },
     "legals": {
-      "title": "法律",
+      "title": "法律条款",
       "refund": "退款政策",
       "terms": "条款与条件",
       "privacy": "隐私政策",
-      "brand": "品牌工具包"
+      "brand": "品牌介绍"
     }
   },
   "hero": {
-    "beta": "API Studio 现已进入测试阶段",
-    "title": "API 安全框架",
-    "description": "我们的落地页模板适用于所有设备，因此您只需设置一次，即可永远获得美观的结果。",
-    "getStarted": "开始使用",
-    "readDocs": "阅读文档"
+    "beta": "智旅星途 - 您的旅行神器",
+    "title": "探索无限可能的旅行世界",
+    "description": "作为深受中国年轻一代青睐的旅游平台，智旅星途汇聚海量信息与丰富资源，致力于为每一位怀揣旅行梦想的人打造独一无二的精彩旅程。",
+    "getStarted": "开始旅程",
+    "readDocs": "探索攻略"
   },
   "changelog": {
     "title": "最新动态",

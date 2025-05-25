@@ -34,42 +34,43 @@
   },
   "footer": {
     "copyright": "All rights reserved",
+    "slogan": "Smart Travel Star Journey, your companion on every exciting journey, exploring the unknown, discovering beauty, and fulfilling every travel dream.",
     "products": {
-      "title": "Products",
-      "features": "Features",
-      "integrations": "Integrations",
-      "pricing": "Pricing & Plans",
-      "changelog": "Changelog",
-      "method": "Our method"
+      "title": "Travel Services",
+      "features": "Featured Tours",
+      "integrations": "Travel Guides",
+      "pricing": "Pricing & Packages",
+      "changelog": "Latest Activities",
+      "method": "Booking Methods"
     },
     "company": {
-      "title": "Company",
-      "about": "About us",
-      "diversity": "Diversity & Inclusion",
-      "blog": "Blog",
-      "careers": "Careers",
-      "financial": "Financial statements"
+      "title": "About Us",
+      "about": "Brand Story",
+      "diversity": "Corporate Culture",
+      "blog": "Travel Blog",
+      "careers": "Join Us",
+      "financial": "Partners"
     },
     "resources": {
-      "title": "Resources",
-      "community": "Community",
-      "terms": "Terms of service",
-      "report": "Report a vulnerability"
+      "title": "Travel Resources",
+      "community": "Travel Community",
+      "terms": "Terms of Service",
+      "report": "Feedback"
     },
     "legals": {
-      "title": "Legals",
-      "refund": "Refund policy",
+      "title": "Legal Terms",
+      "refund": "Refund Policy",
       "terms": "Terms & Conditions",
-      "privacy": "Privacy policy",
-      "brand": "Brand Kit"
+      "privacy": "Privacy Policy",
+      "brand": "Brand Introduction"
     }
   },
   "hero": {
-    "beta": "API Studio is now in beta",
-    "title": "The API Security Framework",
-    "description": "Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.",
-    "getStarted": "Get Started",
-    "readDocs": "Read the docs"
+    "beta": "Smart Travel Star Journey - Your Travel Companion",
+    "title": "Explore a World of Endless Travel Possibilities",
+    "description": "As a travel platform favored by the younger generation in China, Smart Travel Star Journey gathers massive information and rich resources, dedicated to creating unique and wonderful journeys for everyone with travel dreams.",
+    "getStarted": "Start Journey",
+    "readDocs": "Explore Guides"
   },
   "changelog": {
     "title": "What's New",
