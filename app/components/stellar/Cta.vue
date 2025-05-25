@@ -28,7 +28,7 @@
           <p class="text-lg text-slate-400 mb-8">{{ $t('cta.description') }}</p>
           <div>
             <a class="btn text-slate-900 bg-linear-to-r from-white/80 via-white to-white/80 hover:bg-white transition duration-150 ease-in-out group" href="#0">
-              {{ $t('common.getStarted') }} <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
+              {{ $t('cta.button') }} <span class="tracking-normal text-purple-500 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
             </a>
           </div>
         </div>
@@ -36,6 +36,11 @@
     </div>
   </section>
 </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
+</script>
 
 <script>
 export default {
