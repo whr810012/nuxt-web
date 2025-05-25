@@ -15,7 +15,7 @@
         <nav class="hidden md:flex md:grow">
 
           <!-- Desktop menu links -->
-          <ul class="flex grow justify-center flex-wrap items-center">
+          <ul class="flex grow justify-center flex-wrap items-center" v-if="false">
             <li>
               <router-link
                 class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out"
@@ -41,19 +41,6 @@
                 class="font-medium text-sm text-slate-300 hover:text-white mx-4 lg:mx-5 transition duration-150 ease-in-out"
                 to="/changelog">{{ $t('nav.changelog') }}</router-link>
             </li>
-            <!-- <li>
-              <div class="language-switcher flex items-center">
-                <router-link class="lang-link font-medium text-sm transition duration-200 ease-in-out px-2"
-                  :class="!$route.path.includes('/en') ? 'text-white' : 'text-slate-400 hover:text-slate-200'" to="/">
-                  中文
-                </router-link>
-                <span class="text-slate-500 text-sm">|</span>
-                <router-link class="lang-link font-medium text-sm transition duration-200 ease-in-out px-2"
-                  :class="$route.path.includes('/en') ? 'text-white' : 'text-slate-400 hover:text-slate-200'" to="/en">
-                  English
-                </router-link>
-              </div>
-            </li> -->
           </ul>
 
         </nav>
@@ -88,7 +75,7 @@
                 <!-- 用户头像 -->
                 <div
                   class="w-6 h-6 rounded-full bg-purple-500/30 flex items-center justify-center text-purple-200 text-xs font-bold overflow-hidden">
-                  <img v-if="userStore.getUserInfo?.avatar" :src="userStore.getUserInfo.avatar" alt="Avatar"
+                  <img v-if="userStore.getUserInfo?.authorities" :src="userStore.getUserInfo.authorities" alt="Avatar"
                     class="w-full h-full object-cover">
                   <span v-else>{{ userStore.getUserInfo?.nickName?.charAt(0).toUpperCase() }}</span>
                 </div>
@@ -155,7 +142,7 @@
         </ul>
 
         <!-- Mobile menu -->
-        <div class="md:hidden flex items-center ml-4">
+        <div class="md:hidden flex items-center ml-4" v-if="false">
 
           <!-- Hamburger button -->
           <button

@@ -169,6 +169,12 @@
       }
     }
   },
+  "pricing": {
+    "hero": {
+      "title": "Flexible Pricing, Smart Journey",
+      "description": "Smart Travel Star Journey offers diverse pricing plans to ensure every trip is worth your investment. Choose the package that suits you best and start your exclusive journey."
+    }
+  },
   "features04": {
     "title": "Why Choose Us?",
     "description": "As a travel platform favored by the younger generation in China, Smart Travel Star Journey has become an indispensable 'travel companion' for countless travelers. It gathers massive information and rich resources, dedicated to creating unique and wonderful journeys for everyone with travel dreams.",
