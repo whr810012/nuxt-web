@@ -140,7 +140,7 @@ const signIn = async (event: any) => {
     if (response?.token) {
       showToast('登录成功');
       userStore.setToken(response.token)
-      userStore.setUserId(response.userId)
+      userStore.setUserInfo({userId:response.userId})
       localStorage.setItem('token', response.token)
       localStorage.setItem('userId', JSON.stringify(response.userId))
       // userStore.setUserInfo({username: email.value});

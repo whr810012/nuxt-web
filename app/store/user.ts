@@ -22,12 +22,12 @@ export const useUserStore = defineStore('user', {
         localStorage.setItem('token', token)
       }
     },
-    setUserId(id: string) {
-      this.userInfo.userId = id
-      if (typeof localStorage !== 'undefined') {
-        localStorage.setItem('userId', id)
-      }
-    },
+    // setUserId(id: string) {
+    //   this.userInfo.userId = id
+    //   if (typeof localStorage !== 'undefined') {
+    //     localStorage.setItem('userId', id)
+    //   }
+    // },
 
     setUserInfo(info: any) {
       this.userInfo = info
