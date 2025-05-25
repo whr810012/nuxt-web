@@ -108,6 +108,54 @@
   "about": {
     "heroTagline": "The folks behind the product",
     "heroTitle": "Turning security into innovation"
+  },
+  "features04": {
+    "title": "Why Choose Us?",
+    "description": "As a travel platform favored by the younger generation in China, Smart Travel Star Journey has become an indispensable 'travel companion' for countless travelers. It gathers massive information and rich resources, dedicated to creating unique and wonderful journeys for everyone with travel dreams.",
+    "row1": {
+      "title": "Smart Travel Planning",
+      "feature1": {
+        "title": "Community Exchange",
+        "description": "Share experiences with global travel enthusiasts, get first-hand travel advice and inspiration to create your perfect journey."
+      },
+      "feature2": {
+        "title": "Team Views",
+        "description": "Collaborate on travel planning with real-time itinerary synchronization, making group travel more convenient and efficient."
+      },
+      "feature3": {
+        "title": "Powerful Search",
+        "description": "Smart algorithm recommendations to quickly find destinations, accommodations, and activities that match your budget and preferences."
+      }
+    },
+    "row2": {
+      "title": "User Experience Management",
+      "feature1": {
+        "title": "Data Analysis",
+        "description": "Personalized recommendations based on your travel history and preferences, ensuring each trip exceeds expectations."
+      },
+      "feature2": {
+        "title": "Real-time Notifications",
+        "description": "Timely updates on flight changes, weather alerts, and special offers to ensure your travel goes smoothly."
+      },
+      "feature3": {
+        "title": "Multi-platform Integration",
+        "description": "Seamless connection with major travel service platforms for one-stop booking, payment, and itinerary management."
+      }
+    },
+    "row3": {
+      "title": "Security Standards",
+      "feature1": {
+        "title": "Privacy Protection",
+        "description": "Strict data encryption and privacy policies to ensure your personal information and travel plans are secure."
+      },
+      "feature2": {
+        "title": "Data Export",
+        "description": "Export your travel plans and booking information anytime, supporting multiple formats for offline viewing and sharing."
+      },
+      "feature3": {
+        "title": "Real-time Sync",
+        "description": "Synchronize your travel data across multiple devices in real-time, manage and update your travel plans anywhere, anytime."
+      }
+    }
   }
-  
 }
