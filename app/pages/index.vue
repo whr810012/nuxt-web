@@ -14,6 +14,7 @@
 </template>
 
 <script lang="ts" setup>
+import { decrypt } from '~/utils/encrypt'
 import Hero from '../components/stellar/Hero.vue'
 import Clients from '../components/stellar/Clients.vue'
 import Features from '../components/stellar/Features.vue'
@@ -35,7 +36,13 @@ const init = async () => {
     userStore.setToken(token)
     try {
       console.log('开始请求用户信息')
-      const userInfo = await get(`/user/query`)
+      let userInfo = await get(`/user/query`)
+      if (userInfo.email) {
+        userInfo.email = decrypt(userInfo.email)
+      }
+      if (userInfo.phonenumber) {
+        userInfo.phonenumber = decrypt(userInfo.phonenumber)
+      }
       console.log('userInfo 响应数据:', userInfo);
       userStore.setUserInfo(userInfo)
       console.log('存储后的用户信息:', userStore.getUserInfo);

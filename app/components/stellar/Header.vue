@@ -7,7 +7,7 @@
         <div class="flex-1">
           <!-- Logo -->
           <router-link class="inline-flex" to="/" aria-label="Cruip">
-            <img class="max-w-none" src="@/assets/images/logo.svg" width="38" height="38" alt="Stellar">
+            <img class="max-w-none rounded-[50%]" src="@/assets/images/logo.png" width="38" height="38" alt="Stellar">
           </router-link>
         </div>
 

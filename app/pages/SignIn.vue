@@ -109,7 +109,7 @@
 
 <script setup lang="ts">
 import { useUserStore } from '~/store/user'
-import { encrypt } from '~/utils/encrypt'
+import { encrypt, decrypt } from '~/utils/encrypt'
 import { useToast } from '~/composables/useToast'
 
 const router = useRouter()
@@ -147,6 +147,12 @@ const signIn = async (event: any) => {
       // router.push('/');
       try {
         const userInfo = await get(`/user/query`)
+        if (userInfo.email) {
+          userInfo.email = decrypt(userInfo.email)
+        }
+        if (userInfo.phonenumber) {
+          userInfo.phonenumber = decrypt(userInfo.phonenumber)
+        }
         userStore.setUserInfo(userInfo)
         router.push('/');
       } catch (error: any) {
