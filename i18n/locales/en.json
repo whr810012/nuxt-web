@@ -115,6 +115,60 @@
     "description": "Smart Travel Star Journey, as a travel platform favored by the younger generation in China, has become an indispensable 'travel companion' for countless travelers. It gathers massive information and rich resources, dedicated to creating unique and wonderful journeys for everyone with travel dreams.",
     "button": "Explore Now"
   },
+  "features": {
+    "tagline": "Smart Travel Experience",
+    "title": "Explore New Ways of Smart Travel",
+    "description": "Smart Travel Star Journey integrates innovative features like intelligent planning, real-time synchronization, and personalized recommendations, making every journey full of surprises and expectations. We are committed to providing users with the best travel experience, making travel more relaxing and enjoyable.",
+    "buttons": {
+      "simplify": "Smart Planning",
+      "identity": "Personalization",
+      "authentication": "Security"
+    }
+  },
+  "features02": {
+    "header": {
+      "title": "Smart · Innovative",
+      "description": "Smart Travel Star Journey integrates innovative features like intelligent planning, personalized customization, and security protection, making every journey full of surprises and expectations."
+    },
+    "box1": {
+      "title": "Security First",
+      "description": "Employing advanced security technology and privacy protection measures to ensure comprehensive protection of your travel data and personal information, letting you enjoy your journey with peace of mind."
+    },
+    "box2": {
+      "title": "Flexible Extension",
+      "description": "Offering rich personalization options to create your perfect journey based on your preferences and needs."
+    },
+    "box3": {
+      "title": "Infinite Possibilities",
+      "description": "Integration of massive travel resources with intelligent filtering and recommendations to help you easily discover your ideal destinations and experiences."
+    },
+    "features": {
+      "feature1": {
+        "title": "Smart Filtering",
+        "description": "Recommending the most suitable travel plans and experiences based on big data analysis."
+      },
+      "feature2": {
+        "title": "Personalization",
+        "description": "Supporting deep customization to create unique travel experiences based on your preferences and needs."
+      },
+      "feature3": {
+        "title": "Flexible Adaptation",
+        "description": "Seamless integration across multiple platforms to plan and manage your journey anytime, anywhere."
+      },
+      "feature4": {
+        "title": "Security Authentication",
+        "description": "Strict security authentication system to protect your account and transaction safety."
+      },
+      "feature5": {
+        "title": "Itinerary Management",
+        "description": "Intelligent itinerary management system to help you plan time reasonably and improve travel efficiency."
+      },
+      "feature6": {
+        "title": "Smart Service",
+        "description": "24/7 intelligent customer service support to ensure your journey goes smoothly."
+      }
+    }
+  },
   "features04": {
     "title": "Why Choose Us?",
     "description": "As a travel platform favored by the younger generation in China, Smart Travel Star Journey has become an indispensable 'travel companion' for countless travelers. It gathers massive information and rich resources, dedicated to creating unique and wonderful journeys for everyone with travel dreams.",

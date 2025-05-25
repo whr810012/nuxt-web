@@ -142,22 +142,17 @@
   </section>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import Particles from './Particles.vue'
 
+const { t } = useI18n()
+const tab = ref('1')
+</script>
+
+<script>
 export default {
-  name: 'Features',
-  components: {
-    Particles
-  },    
-  setup() {
-
-    const tab = ref('1')
-
-    return {
-      tab,
-    }
-  },  
+  name: 'Features'
 }
 </script>
