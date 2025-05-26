@@ -170,9 +170,45 @@
     }
   },
   "pricing": {
+    "tagline": "智能定价体系",
+    "title": "为每位旅行者定制的价格方案",
+    "description": "智旅星途提供多层次的会员服务，从基础出行到尊享定制，满足不同旅行者的需求。选择最适合您的方案，开启专属旅程。",
     "hero": {
       "title": "灵活定价，智享旅程",
       "description": "智旅星途为您提供多样化的定价方案，让每一次旅行都物超所值。选择最适合您的套餐，开启专属旅程。"
+    },
+    "table": {
+      "free": {
+        "title": "免费用户",
+        "description": "体验基础功能，开启智能旅行之旅。",
+        "button": "免费使用"
+      },
+      "vip": {
+        "title": "VIP尊享会员",
+        "description": "解锁全部高级功能，享受无限次AI智能问答和路线规划，一键获取热门旅游路线，打造专属完美旅程。",
+        "button": "立即开通"
+      },
+      "period": {
+        "month": "月",
+        "year": "年",
+        "forever": "永久"
+      },
+      "features": {
+        "title": "功能特性",
+        "basic_features": "基础功能",
+        "ai_features": "AI智能功能",
+        "ai_qa": "无限次AI智能问答",
+        "ai_planning": "无限次AI路线规划",
+        "popular_routes": "一键获取热门路线",
+        "customization": "个性化行程定制",
+        "vip_privileges": "VIP专属特权"
+      },
+      "support": {
+        "title": "服务支持",
+        "basic": "基础支持",
+        "priority": "优先支持",
+        "service_247": "24/7全天候服务"
+      }
     }
   },
   "features04": {

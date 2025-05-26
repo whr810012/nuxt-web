@@ -170,9 +170,45 @@
     }
   },
   "pricing": {
+    "tagline": "Smart Pricing System",
+    "title": "Tailored Price Plans for Every Traveler",
+    "description": "Smart Travel Star Journey offers multi-tiered membership services, from basic travel to premium customization, meeting the needs of different travelers. Choose the plan that suits you best and start your exclusive journey.",
     "hero": {
       "title": "Flexible Pricing, Smart Journey",
       "description": "Smart Travel Star Journey offers diverse pricing plans to ensure every trip is worth your investment. Choose the package that suits you best and start your exclusive journey."
+    },
+    "table": {
+      "free": {
+        "title": "Free User",
+        "description": "Experience basic features and start your smart travel journey.",
+        "button": "Use Free"
+      },
+      "vip": {
+        "title": "VIP Premium Member",
+        "description": "Unlock all premium features, enjoy unlimited AI Q&A and route planning, access popular travel routes with one click, and create your perfect journey.",
+        "button": "Get Started"
+      },
+      "period": {
+        "month": "month",
+        "year": "year",
+        "forever": "forever"
+      },
+      "features": {
+        "title": "Features",
+        "basic_features": "Basic Features",
+        "ai_features": "AI Features",
+        "ai_qa": "Unlimited AI Q&A",
+        "ai_planning": "Unlimited AI Route Planning",
+        "popular_routes": "One-Click Popular Routes",
+        "customization": "Personalized Itinerary",
+        "vip_privileges": "VIP Privileges"
+      },
+      "support": {
+        "title": "Support",
+        "basic": "Basic Support",
+        "priority": "Priority Support",
+        "service_247": "24/7 Service"
+      }
     }
   },
   "features04": {

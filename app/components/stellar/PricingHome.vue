@@ -24,13 +24,6 @@
   </section>
 </template>
 
-<script>
+<script setup>
 import PricingTable from './PricingTable.vue'
-
-export default {
-  name: 'PricingHome',
-  components: {
-    PricingTable,
-  },
-}
 </script>
