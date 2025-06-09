@@ -47,8 +47,25 @@
                 </div>
                 <div>
                   <label class="block text-sm text-slate-300 font-medium mb-1" for="phonenumber">手机号 <span class="text-rose-500">*</span></label>
-                  <input id="phonenumber" v-model="formData.phonenumber" class="form-input w-full" type="tel" placeholder="请输入手机号" required />
+                  <input id="phonenumber" v-model="formData.phonenumber" class="form-input w-full" type="tel" placeholder="请输入手机号" @blur="validatePhone" required />
                   <p v-if="errors.phonenumber" class="text-rose-500 text-xs mt-1">{{ errors.phonenumber }}</p>
+                </div>
+                <div v-if="formData.phonenumber && isPhoneValid">
+                  <label class="block text-sm text-slate-300 font-medium mb-1" for="smsCode">手机验证码 <span class="text-rose-500">*</span></label>
+                  <div class="flex space-x-2">
+                    <input id="smsCode" v-model="formData.smsCode" class="form-input flex-1" type="text" placeholder="请输入验证码" required />
+                    <button 
+                      type="button" 
+                      class="px-4 py-2 text-sm font-medium text-white bg-purple-500 hover:bg-purple-600 disabled:bg-gray-400 disabled:cursor-not-allowed rounded transition-colors"
+                      :disabled="smsLoading || smsCountdown > 0 || !isPhoneValid"
+                      @click="sendSmsCode"
+                    >
+                      <span v-if="smsLoading">发送中...</span>
+                      <span v-else-if="smsCountdown > 0">{{ smsCountdown }}s</span>
+                      <span v-else>获取验证码</span>
+                    </button>
+                  </div>
+                  <p v-if="errors.smsCode" class="text-rose-500 text-xs mt-1">{{ errors.smsCode }}</p>
                 </div>
                 <div>
                   <label class="block text-sm text-slate-300 font-medium mb-1" for="password">密码 <span class="text-rose-500">*</span></label>
@@ -117,10 +134,10 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
 import { useRouter } from 'vue-router';
 import { useUserStore } from '~/store/user';
-import { post } from '~/utils/request';
+import { post, get } from '~/utils/request';
 import { useToast } from '~/composables/useToast';
 import { encrypt } from '~/utils/encrypt';
 
@@ -128,6 +145,14 @@ const router = useRouter();
 const userStore = useUserStore();
 const { showToast } = useToast();
 const loading = ref(false);
+const smsLoading = ref(false);
+const smsCountdown = ref(0);
+const smsTimer = ref(null);
+
+// 手机号验证
+const isPhoneValid = computed(() => {
+  return /^1[3-9]\d{9}$/.test(formData.value.phonenumber);
+});
 
 const formData = ref({
   nickName: '',
@@ -135,7 +160,8 @@ const formData = ref({
   email: '',
   phonenumber: '',
   password: '',
-  sex: ''
+  sex: '',
+  smsCode: ''
 });
 
 const errors = reactive({
@@ -144,8 +170,51 @@ const errors = reactive({
   email: '',
   phonenumber: '',
   password: '',
-  sex: ''
+  sex: '',
+  smsCode: ''
 });
+
+// 验证手机号
+const validatePhone = () => {
+  if (!formData.value.phonenumber) {
+    errors.phonenumber = '请输入手机号码';
+    return false;
+  }
+  if (!isPhoneValid.value) {
+    errors.phonenumber = '请输入有效的手机号码';
+    return false;
+  }
+  errors.phonenumber = '';
+  return true;
+};
+
+// 发送短信验证码
+const sendSmsCode = async () => {
+  if (!validatePhone()) {
+    return;
+  }
+  
+  try {
+    smsLoading.value = true;
+    await get('/sms/enroll', { number: formData.value.phonenumber });
+    showToast('验证码发送成功');
+    
+    // 开始倒计时
+    smsCountdown.value = 60;
+    smsTimer.value = setInterval(() => {
+      smsCountdown.value--;
+      if (smsCountdown.value <= 0) {
+        clearInterval(smsTimer.value);
+        smsTimer.value = null;
+      }
+    }, 1000);
+  } catch (error) {
+    console.error('发送短信验证码失败:', error);
+    showToast(error.message || '发送验证码失败，请稍后重试');
+  } finally {
+    smsLoading.value = false;
+  }
+};
 
 // 验证函数
 const validate = () => {
@@ -181,8 +250,13 @@ const validate = () => {
   }
   
   // 验证手机号
-  if (!/^1[3-9]\d{9}$/.test(formData.value.phonenumber)) {
-    errors.phonenumber = '请输入有效的手机号';
+  if (!validatePhone()) {
+    isValid = false;
+  }
+  
+  // 验证手机验证码
+  if (formData.value.phonenumber && !formData.value.smsCode) {
+    errors.smsCode = '请输入手机验证码';
     isValid = false;
   }
   
@@ -209,15 +283,18 @@ const handleSignUp = async () => {
     const encryptedEmail = encrypt(formData.value.email);
     const encryptedPhonenumber = encrypt(formData.value.phonenumber);
     
+    // 构建表单数据（使用FormData格式）
+    const formDataToSend = new FormData();
+    formDataToSend.append('nickName', formData.value.nickName);
+    formDataToSend.append('userName', formData.value.userName);
+    formDataToSend.append('email', encryptedEmail);
+    formDataToSend.append('phonenumber', encryptedPhonenumber);
+    formDataToSend.append('password', encryptedPassword);
+    formDataToSend.append('sex', formData.value.sex);
+    formDataToSend.append('SmsCode', formData.value.smsCode);
+    
     // 调用注册接口
-    const response = await post('/user/enroll', {
-      nickName: formData.value.nickName,
-      userName: formData.value.userName,
-      email: encryptedEmail, // 使用加密后的邮箱
-      phonenumber: encryptedPhonenumber, // 使用加密后的手机号
-      password: encryptedPassword, // 使用加密后的密码
-      sex: formData.value.sex
-    });
+    const response = await post('/user/enroll', formDataToSend);
     
     // 注册成功后处理响应
     showToast('注册成功');

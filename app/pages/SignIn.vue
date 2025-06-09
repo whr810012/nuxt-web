@@ -29,38 +29,90 @@
 
           <!-- Form -->
           <div class="max-w-sm mx-auto">
+            
+            <!-- 登录方式切换 -->
+            <div class="flex mb-6 bg-slate-800 rounded-lg p-1">
+              <button 
+                type="button" 
+                class="flex-1 py-2 px-4 text-sm font-medium rounded-md transition-colors"
+                :class="loginType === 'password' ? 'bg-purple-500 text-white shadow' : 'text-slate-400'"
+                @click="switchLoginType('password')"
+              >
+                密码登录
+              </button>
+              <button 
+                type="button" 
+                class="flex-1 py-2 px-4 text-sm font-medium rounded-md transition-colors"
+                :class="loginType === 'sms' ? 'bg-purple-500 text-white shadow' : 'text-slate-400'"
+                @click="switchLoginType('sms')"
+              >
+                短信登录
+              </button>
+            </div>
 
             <form @submit="signIn">
-              <div class="space-y-4">
-                <div>
-                  <label class="block text-sm text-slate-300 font-medium mb-1" for="email">{{ $t('auth.userName') }}</label>
-                  <input v-model="email" id="email" class="form-input w-full" required />
-                </div>
-                <div>
-                  <div class="flex justify-between">
-                    <label class="block text-sm text-slate-300 font-medium mb-1" for="password">{{ $t('auth.password') }}</label>
-                    <router-link
-                      class="text-sm font-medium text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out ml-2"
-                      to="/resetpassword">{{ $t('auth.forgot') }}</router-link>
+              <!-- 密码登录表单 -->
+              <template v-if="loginType === 'password'">
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-sm text-slate-300 font-medium mb-1" for="email">{{ $t('auth.userName') }}</label>
+                    <input v-model="email" id="email" class="form-input w-full" required />
                   </div>
-                  <input v-model="password" id="password" class="form-input w-full" type="password" autocomplete="on"
-                    required />
-                </div>
-                <div>
-                  <label class="block text-sm text-slate-300 font-medium mb-1" for="captcha">{{ $t('auth.verification') }}</label>
-                  <div class="flex items-center space-x-2">
-                    <input id="captcha" v-model="captchaCode" class="form-input flex-1" type="text" required />
-                    <!-- 验证码图片，点击可刷新 -->
-                    <img :src="img" @click="init"
-                      class="h-10 w-24 cursor-pointer rounded border border-slate-800"
-                      alt="Verification Code" />
+                  <div>
+                    <div class="flex justify-between">
+                      <label class="block text-sm text-slate-300 font-medium mb-1" for="password">{{ $t('auth.password') }}</label>
+                      <router-link
+                        class="text-sm font-medium text-purple-500 hover:text-purple-400 transition duration-150 ease-in-out ml-2"
+                        to="/resetpassword">{{ $t('auth.forgot') }}</router-link>
+                    </div>
+                    <input v-model="password" id="password" class="form-input w-full" type="password" autocomplete="on"
+                      required />
+                  </div>
+                  <div>
+                    <label class="block text-sm text-slate-300 font-medium mb-1" for="captcha">{{ $t('auth.verification') }}</label>
+                    <div class="flex items-center space-x-2">
+                      <input id="captcha" v-model="captchaCode" class="form-input flex-1" type="text" required />
+                      <!-- 验证码图片，点击可刷新 -->
+                      <img :src="img" @click="init"
+                        class="h-10 w-24 cursor-pointer rounded border border-slate-800"
+                        alt="Verification Code" />
+                    </div>
                   </div>
                 </div>
-              </div>
+              </template>
+              
+              <!-- 短信登录表单 -->
+              <template v-else>
+                <div class="space-y-4">
+                  <div>
+                    <label class="block text-sm text-slate-300 font-medium mb-1" for="phone">手机号 <span class="text-rose-500">*</span></label>
+                    <input id="phone" v-model="phone" class="form-input w-full" type="tel" placeholder="请输入手机号" @blur="validatePhone" required />
+                    <p v-if="phoneError" class="text-rose-500 text-xs mt-1">{{ phoneError }}</p>
+                  </div>
+                  <div>
+                    <label class="block text-sm text-slate-300 font-medium mb-1" for="smsCode">短信验证码 <span class="text-rose-500">*</span></label>
+                    <div class="flex space-x-2">
+                      <input id="smsCode" v-model="smsCode" class="form-input flex-1" type="text" placeholder="请输入验证码" required />
+                      <button 
+                        type="button" 
+                        class="px-4 py-2 text-sm font-medium text-white bg-purple-500 hover:bg-purple-600 disabled:bg-gray-400 disabled:cursor-not-allowed rounded transition-colors"
+                        :disabled="smsLoading || smsCountdown > 0 || !isPhoneValid"
+                        @click="sendSmsCode"
+                      >
+                        <span v-if="smsLoading">发送中...</span>
+                        <span v-else-if="smsCountdown > 0">{{ smsCountdown }}s</span>
+                        <span v-else>获取验证码</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </template>
+              
               <div class="mt-6">
-                <button type="submit" class="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group">
-                  {{ $t('auth.signIn') }} <span
-                    class="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span>
+                <button type="submit" class="btn text-sm text-white bg-purple-500 hover:bg-purple-600 w-full shadow-xs group" :disabled="loading">
+                  <span v-if="loading">{{ $t('common.loading') }}...</span>
+                  <span v-else>{{ $t('auth.signIn') }} <span
+                    class="tracking-normal text-purple-300 group-hover:translate-x-0.5 transition-transform duration-150 ease-in-out ml-1">-&gt;</span></span>
                 </button>
               </div>
             </form>
@@ -120,22 +172,116 @@ const password = ref('123456')
 const captchaCode = ref()
 const img = ref()
 const uuid = ref()
+const loading = ref(false)
+const loginType = ref('password') // 'password' 或 'sms'
+const phone = ref('')
+const smsCode = ref('')
+const phoneError = ref('')
+const smsLoading = ref(false)
+const smsCountdown = ref(0)
+const smsTimer = ref(null)
+
+// 手机号验证
+const isPhoneValid = computed(() => {
+  return /^1[3-9]\d{9}$/.test(phone.value)
+})
+
+// 切换登录方式
+const switchLoginType = (type: string) => {
+  loginType.value = type
+  phoneError.value = ''
+  // 清空表单数据
+  if (type === 'sms') {
+    email.value = ''
+    password.value = ''
+    captchaCode.value = ''
+  } else {
+    phone.value = ''
+    smsCode.value = ''
+  }
+}
+
+// 验证手机号
+const validatePhone = () => {
+  if (!phone.value) {
+    phoneError.value = '请输入手机号码'
+    return false
+  }
+  if (!isPhoneValid.value) {
+    phoneError.value = '请输入有效的手机号码'
+    return false
+  }
+  phoneError.value = ''
+  return true
+}
+
+// 发送短信验证码
+const sendSmsCode = async () => {
+  if (!validatePhone()) {
+    return
+  }
+  
+  try {
+    smsLoading.value = true
+    await get('/sms/enroll', { number: phone.value })
+    showToast('验证码发送成功')
+    
+    // 开始倒计时
+    smsCountdown.value = 60
+    smsTimer.value = setInterval(() => {
+      smsCountdown.value--
+      if (smsCountdown.value <= 0) {
+        clearInterval(smsTimer.value)
+        smsTimer.value = null
+      }
+    }, 1000)
+  } catch (error: any) {
+    console.error('发送短信验证码失败:', error)
+    showToast(error.message || '发送验证码失败，请稍后重试')
+  } finally {
+    smsLoading.value = false
+  }
+}
 
 const signIn = async (event: any) => {
   event.preventDefault();
-  if (!email.value || !password.value || !captchaCode.value) {
-    return showToast('请输入完整信息');
-  }
+  
   try {
-    // 对密码进行AES加密
-    const encryptedPassword = encrypt(password.value);
+    loading.value = true
+    let response
     
-    const formData = new FormData();
-    formData.append('userName', email.value);
-    formData.append('password', encryptedPassword); // 使用加密后的密码
-    formData.append('captcha', captchaCode.value);
-    formData.append('captchaKey', uuid.value);
-    const response = await post('/user/login', formData);
+    if (loginType.value === 'password') {
+      // 密码登录
+      if (!email.value || !password.value || !captchaCode.value) {
+        return showToast('请输入完整信息');
+      }
+      
+      // 对密码进行AES加密
+      const encryptedPassword = encrypt(password.value);
+      
+      const formData = new FormData();
+      formData.append('userName', email.value);
+      formData.append('password', encryptedPassword); // 使用加密后的密码
+      formData.append('captcha', captchaCode.value);
+      formData.append('captchaKey', uuid.value);
+      response = await post('/user/login', formData);
+    } else {
+      // 短信验证码登录
+      if (!validatePhone()) {
+        return
+      }
+      if (!smsCode.value) {
+        return showToast('请输入短信验证码');
+      }
+      
+      const formData = new FormData();
+      formData.append('phone', phone.value);
+      formData.append('smsCode', smsCode.value);
+      
+      // 这里假设后端有短信登录接口，如果没有需要添加
+      response = await post('/user/sms-login', formData);
+    }
+    
     console.log('response', response);
     if (response?.token) {
       showToast('登录成功');
@@ -143,8 +289,7 @@ const signIn = async (event: any) => {
       userStore.setUserInfo({userId:response.userId})
       localStorage.setItem('token', response.token)
       localStorage.setItem('userId', JSON.stringify(response.userId))
-      // userStore.setUserInfo({username: email.value});
-      // router.push('/');
+      
       try {
         const userInfo = await get(`/user/query`)
         if (userInfo.email) {
@@ -165,8 +310,15 @@ const signIn = async (event: any) => {
     }
   } catch (error: any) {
     console.log('登录失败', error);
-    showToast(error.message || error.msg || '登录失败');
-    init();
+    const errorMsg = loginType.value === 'password' ? '登录失败，请检查用户名和密码' : '登录失败，请检查手机号和验证码'
+    showToast(error.message || error.msg || errorMsg);
+    
+    // 密码登录失败时刷新验证码
+    if (loginType.value === 'password') {
+      init();
+    }
+  } finally {
+    loading.value = false
   }
 }
 const init = async () => {
