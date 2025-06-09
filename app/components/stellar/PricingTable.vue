@@ -23,11 +23,6 @@
           </div>
           <div class="text-slate-500 transition-colors duration-300 group-hover:text-slate-400">{{ $t('pricing.table.free.description') }}</div>
         </div>
-        <div class="pb-4 border-b border-slate-800">
-          <a class="btn-sm text-slate-300 bg-slate-700/50 hover:bg-slate-600/70 w-full transition duration-300 ease-in-out group backdrop-blur-sm shadow-lg hover:shadow-slate-700/30 hover:scale-[1.02] hover:text-white" href="#0">
-            {{ $t('pricing.table.free.button') }} <span class="tracking-normal text-slate-400 group-hover:translate-x-1 transition-transform duration-300 ease-in-out ml-1">-&gt;</span>
-          </a>
-        </div>
       </div>
       <!-- VIP price -->
       <div class="px-6 flex flex-col justify-end">
@@ -52,11 +47,6 @@
             <span class="text-lg font-medium text-slate-500 transition-colors duration-300 group-hover:text-slate-400">¥</span><span class="text-3xl font-bold text-slate-50 transition-colors duration-300 group-hover:text-white">{{ annual ? '299.9' : '29.9' }}</span><span class="text-sm text-slate-600 font-medium transition-colors duration-300 group-hover:text-slate-500">/{{ annual ? $t('pricing.table.period.year') : $t('pricing.table.period.month') }}</span>
           </div>
           <div class="text-slate-500 transition-colors duration-300 group-hover:text-slate-400">{{ $t('pricing.table.vip.description') }}</div>
-        </div>
-        <div class="pb-4 border-b border-slate-800">
-          <a class="btn-sm text-white bg-purple-500/90 hover:bg-purple-600 w-full transition duration-300 ease-in-out group shadow-lg shadow-purple-500/30 hover:shadow-purple-500/50 backdrop-blur-sm hover:scale-[1.02]" href="#0">
-            {{ $t('pricing.table.vip.button') }} <span class="tracking-normal text-purple-300 group-hover:translate-x-1 transition-transform duration-300 ease-in-out ml-1">-&gt;</span>
-          </a>
         </div>
       </div>
       <!-- Features Title -->
