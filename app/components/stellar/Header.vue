@@ -245,7 +245,7 @@ const toggleDropdown = () => {
 // Handle logout
 const handleLogout = async () => {
   try {
-    await get('/user/logout')
+    await get('/user/user/logout')
     await userStore.logout()
     showToast('退出登录成功')
     isDropdownOpen.value = false

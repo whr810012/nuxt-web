@@ -264,7 +264,7 @@ const signIn = async (event: any) => {
       formData.append('password', encryptedPassword); // 使用加密后的密码
       formData.append('captcha', captchaCode.value);
       formData.append('captchaKey', uuid.value);
-      response = await post('/user/login', formData);
+      response = await post('/login/user', formData);
     } else {
       // 短信验证码登录
       if (!validatePhone()) {
@@ -274,12 +274,12 @@ const signIn = async (event: any) => {
         return showToast('请输入短信验证码');
       }
       
-      const formData = new FormData();
-      formData.append('phone', phone.value);
-      formData.append('smsCode', smsCode.value);
-      
+      const data = {
+        phone: phone.value,
+        smsCode: smsCode.value
+      }
       // 这里假设后端有短信登录接口，如果没有需要添加
-      response = await post('/user/sms-login', formData);
+      response = await post('/login/sms/user', data);
     }
     
     console.log('response', response);
@@ -322,7 +322,7 @@ const signIn = async (event: any) => {
   }
 }
 const init = async () => {
-  const response = await get('/captcha') // 直接获取数据，而不是响应对象
+  const response = await get('/login/capacha') // 直接获取数据，而不是响应对象
   img.value = 'data:image/png;base64,' + response.img
   uuid.value = response.uuid
 }

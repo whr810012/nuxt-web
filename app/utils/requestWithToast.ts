@@ -41,7 +41,7 @@ export const requestWithToast = async <T = any>(
       const token = userStore.getToken;
       // 有两个接口不需要token
       if (token) {
-        if (url === '/user/login' || url === '/captcha') {
+        if (url === '/login/user' || url === '/login/capacha') {
           return;
         } else{
           options.headers.set('Authorization', `${token}`);
