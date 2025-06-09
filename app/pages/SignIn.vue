@@ -322,7 +322,7 @@ const signIn = async (event: any) => {
   }
 }
 const init = async () => {
-  const response = await get('/capacha') // 直接获取数据，而不是响应对象
+  const response = await get('/login/capacha') // 直接获取数据，而不是响应对象
   img.value = 'data:image/png;base64,' + response.img
   uuid.value = response.uuid
 }

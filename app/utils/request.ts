@@ -34,7 +34,7 @@ export const request = async <T = any>(
       console.log('options',options);
       // 有两个接口不需要token
       if (token) {
-        if (url === '/login/user' || url === '/capacha' || url === '/user/enroll') {
+        if (url === '/login/user' || url === '/login/capacha' || url === '/user/enroll') {
           return;
         } else{
           options.headers.set('Authorization', `${token}`);          
