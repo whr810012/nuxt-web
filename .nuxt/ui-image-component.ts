@@ -1,0 +1,1 @@
+export { default } from "D:/codetwo/nuxt-web/node_modules/.pnpm/@nuxt+image@1.10.0_@netlify_145505ba9580443c63ab7eb83a397f17/node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue"

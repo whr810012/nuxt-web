@@ -23,7 +23,7 @@ export const request = async <T = any>(
 ): Promise<T> => {
   // 默认配置
   const defaultConfig: RequestConfig = {
-    baseURL: 'http://localhost:8082',
+    baseURL: '',
     headers: {
       'Content-Type': 'application/json',
     },
